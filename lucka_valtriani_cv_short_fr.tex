@@ -32,7 +32,7 @@
 \pagestyle{empty}
 \setlength{\parskip}{0pt}
 
-\IfFileExists{cv_updated.tex}{\input{cv_updated.tex}}{\newcommand{\cvupdated}{local build}}
+\IfFileExists{cv_updated.inc}{\input{cv_updated.inc}}{\newcommand{\cvupdated}{local build}}
 
 \newcommand{\cventry}[4]{%
   \noindent{\small\textbf{#1}}\ifx&#2&\else{\small\textit{\color{gray} --- #2}}\fi{\footnotesize\textcolor{lightgray}{\hfill#3}}\par\vspace{-2pt}%
