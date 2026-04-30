@@ -21,8 +21,9 @@ jobs:
 
       - name: Generate CV updated stamp
         run: |
-          ts=$(date -u +"%Y-%m-%d %H:%M UTC")
-          echo "\\newcommand{\\cvupdated}{${ts}}" > cv_updated.inc
+          ts_compact=$(TZ=Europe/Paris date +"%Y%m%d-%H%M%S")
+          ts_human=$(TZ=Europe/Paris date +"%d/%m/%Y %H:%M")
+          echo "\\newcommand{\\cvupdated}{${ts_human} (heure de Paris)}" > cv_updated.inc
 
       - name: Build PDFs with latexmk
         uses: xu-cheng/latex-action@v3
@@ -36,10 +37,11 @@ jobs:
         id: meta
         run: |
           short_sha=${GITHUB_SHA::7}
-          ts=$(date -u +"%Y%m%d-%H%M%S")
-          tag="cv-${ts}-${short_sha}"
+          ts_compact=$(TZ=Europe/Paris date +"%Y%m%d-%H%M%S")
+          ts_human=$(TZ=Europe/Paris date +"%d/%m/%Y %H:%M")
+          tag="cv-${ts_compact}-${short_sha}"
           echo "tag=${tag}" >> "$GITHUB_OUTPUT"
-          echo "name=CV ${ts} (${short_sha})" >> "$GITHUB_OUTPUT"
+          echo "name=CV MIS A JOUR: ${ts_human} (heure de Paris)" >> "$GITHUB_OUTPUT"
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
