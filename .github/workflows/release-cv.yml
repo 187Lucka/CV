@@ -1,0 +1,42 @@
+name: Release CV PDF
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build PDF with latexmk
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: lucka_valtriani_cv_short_fr.tex
+          latexmk_use_xelatex: false
+          args: -pdf -interaction=nonstopmode -halt-on-error
+
+      - name: Set release metadata
+        id: meta
+        run: |
+          short_sha=${GITHUB_SHA::7}
+          ts=$(date -u +"%Y%m%d-%H%M%S")
+          tag="cv-${ts}-${short_sha}"
+          echo "tag=${tag}" >> "$GITHUB_OUTPUT"
+          echo "name=CV ${ts} (${short_sha})" >> "$GITHUB_OUTPUT"
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.meta.outputs.tag }}
+          name: ${{ steps.meta.outputs.name }}
+          files: lucka_valtriani_cv_short_fr.pdf
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
