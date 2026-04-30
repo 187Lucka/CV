@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+    paths:
+      - "**/*.tex"
+      - ".github/workflows/release-cv.yml"
 
 permissions:
   contents: write
