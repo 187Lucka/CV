@@ -32,8 +32,6 @@
 \pagestyle{empty}
 \setlength{\parskip}{0pt}
 
-\IfFileExists{cv_updated.inc}{\input{cv_updated.inc}}{\newcommand{\cvupdated}{local build}}
-
 \newcommand{\cventry}[4]{%
   \noindent{\small\textbf{#1}}\ifx&#2&\else{\small\textit{\color{gray} --- #2}}\fi{\footnotesize\textcolor{lightgray}{\hfill#3}}\par\vspace{-2pt}%
   \ifx&#4&\else{\footnotesize #4}\fi
@@ -47,7 +45,6 @@
 \begin{center}
   {\Large\bfseries\color{accent} Lucka Valtriani}\\[3pt]
   {\small\color{gray} Developpeur Logiciel --- Backend \& Systemes | Recherche un stage en developpement}\\[4pt]
-  {\footnotesize\color{lightgray} CV UPDATED: \cvupdated}\\[2pt]
   {\footnotesize
     \href{mailto:lucka.valtriani@epitech.eu}{lucka.valtriani@epitech.eu}
     ~|~ Nice, France
