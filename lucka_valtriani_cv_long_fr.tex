@@ -1,0 +1,321 @@
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[a4paper, top=1.2cm, bottom=1.2cm, left=1.3cm, right=1.3cm]{geometry}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[dvipsnames,svgnames,x11names]{xcolor}
+\usepackage{hyperref}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{parskip}
+\usepackage{multicol}
+
+\definecolor{accent}{HTML}{1A1A2E}
+\definecolor{linkcolor}{HTML}{0F3460}
+\definecolor{gray}{HTML}{444444}
+\definecolor{lightgray}{HTML}{777777}
+\definecolor{tagrule}{HTML}{CCCCCC}
+
+\hypersetup{colorlinks=true, urlcolor=linkcolor, hidelinks}
+
+\newcommand{\sectionrule}{\vspace{-3pt}{\color{accent}\rule{\linewidth}{0.8pt}}\vspace{2pt}}
+\titleformat{\section}
+  {\large\bfseries\color{accent}}
+  {}{0em}{\MakeUppercase}
+  [\sectionrule]
+\titlespacing{\section}{0pt}{10pt}{4pt}
+
+\pagestyle{empty}
+\setlength{\parskip}{0pt}
+
+\newcommand{\cventry}[4]{%
+  \noindent{\normalsize\textbf{#1}}\ifx&#2&\else{\normalsize\textit{\color{gray} --- #2}}\fi{\small\textcolor{lightgray}{\hfill#3}}\par\vspace{0pt}%
+  \ifx&#4&\else{\small #4}\fi
+  \vspace{5pt}
+}
+
+\newcommand{\projentry}[5]{%
+  \noindent{\normalsize\textbf{#1}}\ifx&#2&\else{ \small\textit{\color{gray}(#2)}}\fi{\small\textcolor{lightgray}{\hfill#3}}\par
+  \vspace{1pt}
+  \ifx&#4&\else{\small\textbf{Stack:} \textit{#4}\\}\fi
+  \ifx&#5&\else{\small #5}\fi
+  \vspace{5pt}
+}
+
+\setlist[itemize]{itemsep=1pt, topsep=1pt, leftmargin=1.4em, label=\textbullet}
+
+\begin{document}
+
+% ===============================================
+% HEADER
+% ===============================================
+\begin{center}
+  {\LARGE\bfseries\color{accent} Lucka Valtriani}\\[5pt]
+  {\normalsize\color{gray} Developpeur Logiciel --- Specialisation Backend \& Systemes}\\[2pt]
+  {\small\color{gray} Recherche un stage en developpement}\\[7pt]
+  {\small
+    \href{mailto:lucka.valtriani@epitech.eu}{lucka.valtriani@epitech.eu}
+    \quad|\quad Nice, France
+    \quad|\quad \href{https://github.com/187lucka}{github.com/187lucka}
+    \quad|\quad \href{https://www.linkedin.com/in/lucka-valtriani-8a8551258/}{linkedin.com/in/lucka-valtriani}
+    \quad|\quad \href{https://valtriani.dev}{valtriani.dev}
+  }
+\end{center}
+
+\vspace{2pt}
+
+% ===============================================
+% PROFIL
+% ===============================================
+\section{Profil}
+
+{\small
+Etudiant en 5\textsuperscript{e} annee a Epitech (RNCP niv.~7), oriente \textbf{backend et systemes}. Deux ans d'experience en production sur des architectures evenementielles, APIs REST et WebSocket, avec une maitrise concretes des outils DevOps: Docker, CI/CD, Prometheus, Grafana. Intervenu sur des projets a forte charge (700+ joueurs simultanes en ligne) et dans un environnement Web3. Fondateur d'une activite freelance de vente de scripts depuis 2022. Autonome, habitue au live-ops et a la coordination d'equipe. Annee universitaire 2025--2026 a l'Universite Laval (Quebec, Canada), cours en francais.
+}
+
+% ===============================================
+% COMPETENCES
+% ===============================================
+\section{Competences Techniques}
+
+\begin{tabularx}{\linewidth}{@{} l X @{}}
+\textbf{Langages}        & C, C++, Python, Lua, JavaScript, TypeScript, Go, Java \\[2pt]
+\textbf{Backend}         & API REST, WebSocket, PostgreSQL, MySQL, JWT, OAuth, Node.js \\[2pt]
+\textbf{Infra / DevOps}  & Docker, Docker Compose, CI/CD, Prometheus, Grafana, Dokploy, Nginx \\[2pt]
+\textbf{Frontend}        & React, Preact, Vite, HTML, CSS, SCSS, i18n \\[2pt]
+\textbf{Autres}          & Git, GitHub, architecture logicielle, conception de protocoles reseau (RFC), ECS, TCP/UDP, WebSocket \\[2pt]
+\textbf{Outils IA}       & Claude (Anthropic), GitHub Copilot --- utilisation avancee en contexte de developpement \\[2pt]
+\textbf{Langues}         & Francais (natif), Anglais professionnel, Allemand (niveau scolaire) \\
+\end{tabularx}
+
+% ===============================================
+% EXPERIENCES
+% ===============================================
+
+\section{Soft Skills}
+
+\begin{tabularx}{\linewidth}{@{} X X X @{}}
+\textbullet\ \textbf{Gestion de projet} & \textbullet\ \textbf{Autonomie} & \textbullet\ \textbf{Adaptabilite} \\[3pt]
+\textbullet\ \textbf{Coordination d'equipe} & \textbullet\ \textbf{Rigueur \& ponctualite} & \textbullet\ \textbf{Relation client} \\[3pt]
+\textbullet\ \textbf{Live-ops \& gestion de crise} & \textbullet\ \textbf{Prise d'initiative} & \textbullet\ \textbf{Veille technologique} \\
+\end{tabularx}
+
+\section{Experiences Professionnelles}
+
+\cventry{Lead Backend Engineer / DevOps}{CLYR (Web3)}{2025 -- aujourd'hui}{
+  \begin{itemize}
+    \item Responsable backend et DevOps d'une plateforme Web3 d'offres d'emploi
+    \item Conception et maintenance de l'API, gestion de l'infrastructure Docker, pipelines CI/CD
+    \item Monitoring en production avec Prometheus et Grafana, deploiement via Dokploy
+  \end{itemize}
+}
+
+\cventry{Main Dev \& Project Manager}{NoFace RP (FiveM)}{Mars -- Aout 2025}{
+  \begin{itemize}
+    \item Developpeur principal d'un serveur FiveM en acces libre atteignant \textbf{$\sim$700 joueurs simultanes} et $\sim$200 en Whitelist
+    \item Gestion de projet, coordination d'equipe, planification et deploiement de features en live-ops
+    \item Maintien d'un environnement de production stable sous forte charge
+  \end{itemize}
+}
+
+\cventry{Lead Developpeur}{Infinite Corporation (FiveM)}{Juil. 2023 -- Juil. 2025}{
+  \begin{itemize}
+    \item Developpement et maintenance sur 2 ans du framework serveur FiveM maison en Lua
+    \item Architecture evenementielle modulaire: 15+ modules independants, event bus interne
+    \item Persistance SQL, outils internes, maintenance live, UI React NUI integree
+  \end{itemize}
+}
+
+\cventry{Stage Developpeur}{Monaco Mediaax}{Sept. 2023}{
+  \begin{itemize}
+    \item Conception et developpement de projets numeriques: sites web et applications
+    \item Gestion des demandes clients, mise a jour de contenus web, relation client directe
+  \end{itemize}
+}
+
+\cventry{Fondateur \& Developpeur}{187shop (freelance)}{2022 -- aujourd'hui}{
+  \begin{itemize}
+    \item Creation et commercialisation de scripts Lua/JavaScript pour communautes FiveM
+    \item Support client direct, pricing, devis, gestion de la relation commerciale
+  \end{itemize}
+}
+
+\cventry{Achat-revente}{Sneakers \& vetements de collection (independant)}{2022 -- aujourd'hui}{
+  \begin{itemize}
+    \item Sourcing, pricing, negociation fournisseurs, gestion de stock
+    \item Revente sur plateformes specialisees, relation client, SAV
+  \end{itemize}
+}
+
+\cventry{Technicien de surface de nuit}{EHPAD Les Jardins de Ste Marguerite}{2021 -- 2022}{
+  \begin{itemize}
+    \item Entretien des normes d'hygiene, aide au service du petit-dejeuner
+    \item Travail en autonomie de nuit, rigueur, ponctualite
+  \end{itemize}
+}
+
+% ===============================================
+% PROJETS
+% ===============================================
+\section{Projets Techniques}
+
+\projentry{DigiCoach}{Lead Backend Engineer / DevOps}{2026}{Go, Flutter, PostgreSQL, ML Kit, Docker, WebSocket, Prometheus}{
+  \begin{itemize}
+    \item Application mobile de coaching sportif par IA (projet EIP Epitech, jury Greenlight juil.~2026)
+    \item Skeleton tracking temps reel, feedback biomecanique sur 8 articulations
+    \item Social integre, monitoring en production, CI/CD, architecture microservices
+  \end{itemize}
+}
+
+\projentry{Infinite Framework}{Lead dev Lua}{Juil. 2023 -- Juil. 2025}{Lua, FiveM, SQL, React (NUI)}{
+  \begin{itemize}
+    \item Framework serveur FiveM modulaire developpe et maintenu sur 2 ans
+    \item Architecture evenementielle, 15+ modules independants, event bus, persistance SQL
+    \item Interface utilisateur React NUI integree, outils internes de debug et monitoring
+  \end{itemize}
+}
+
+\projentry{Switch Game}{Main Dev \& Game Design}{2023}{Lua, SQL, Docker, FiveM, Live-Ops}{
+  \begin{itemize}
+    \item Evenement Twitch type Squid Game en direct sur GTA RP
+    \item Mini-jeux custom, eliminations synchronisees, UI d'event dedie, multijoueur
+    \item Participation de $\sim$15 streamers, coordination live-ops en temps reel
+  \end{itemize}
+}
+
+\projentry{R-Type}{Dev gameplay \& protocole}{2024}{C++, Boost::asio, SFML, ECS, UDP}{
+  \begin{itemize}
+    \item Jeu multijoueur reseau avec serveur multithread
+    \item Architecture ECS maison, protocole UDP documente (RFC), gestion de la latence
+  \end{itemize}
+}
+
+\projentry{Zappy}{Server \& IA}{2024}{C, C++, Python, Raylib, TCP}{
+  \begin{itemize}
+    \item Simulation d'IA distribuee sur reseau: serveur C, GUI temps reel en Raylib
+    \item IA Python communiquant via protocole TCP texte, gestion multi-clients
+  \end{itemize}
+}
+
+\projentry{CLYR Discord Bot}{Backend}{2025}{Python, discord.py, aiohttp, MySQL, Docker}{
+  \begin{itemize}
+    \item Bot Discord pour diffusion multi-serveur, webhook server, broadcast automatise
+    \item Hot-reload des cogs, 13 slash commands, containerise Docker
+  \end{itemize}
+}
+
+\projentry{Raytracer}{Rendering \& maths}{2024}{C++, graphics, math}{
+  \begin{itemize}
+    \item Moteur de rendu 3D par lancer de rayons
+    \item Intersections analytiques (spheres, plans, cylindres), Phong shading, scenes en fichier de configuration
+  \end{itemize}
+}
+
+\projentry{TrottiUL}{Dev backend}{2025}{Java, Docker, JWT, REST API, SMTP}{
+  \begin{itemize}
+    \item Systeme de gestion de trottinettes electriques partagees
+    \item Authentification JWT, facturation PDF/JSON, systeme de gestion d'energie, gestion des stations
+  \end{itemize}
+}
+
+\projentry{Arcade}{Architecture \& core}{2024}{C++, SFML, SDL2, Ncurses, Dylib}{
+  \begin{itemize}
+    \item Moteur de jeu a bibliotheques graphiques interchangeables a chaud
+    \item Plugins .so hot-load, 3 jeux implementes sur 3 librairies graphiques differentes
+  \end{itemize}
+}
+
+\projentry{Portfolio personnel}{Design \& dev}{2026}{React, Vite, CSS, i18n, Docker, Nginx, CDN}{
+  \begin{itemize}
+    \item Site portfolio \href{https://valtriani.dev}{valtriani.dev} avec i18n maison
+    \item SEO avance: JSON-LD, Open Graph, sitemap, deploiement Docker + Nginx + CDN
+  \end{itemize}
+}
+
+\projentry{Sneakers Resell Tracker}{Full-stack Dev}{2025}{Python, TypeScript, React, CSS, API}{
+  \begin{itemize}
+    \item Outil de suivi des prix du marche sneakers en temps reel
+    \item API REST, frontend React, 87 commits, integration d'APIs externes
+  \end{itemize}
+}
+
+\projentry{187Hud Simple}{Dev \& design}{2022}{Lua, JavaScript, HTML, CSS}{
+  \begin{itemize}
+    \item HUD open-source pour FiveM: rendu NUI, synchronisation temps reel des donnees joueur
+  \end{itemize}
+}
+
+\projentry{uTasks}{Full-stack Dev}{2025}{TypeScript, React, Node.js, Docker, pnpm}{
+  \begin{itemize}
+    \item Application web de gestion de taches, stack Docker complete, projet academique (GLO-3102)
+  \end{itemize}
+}
+
+\projentry{uFood}{Dev frontend}{2025}{TypeScript, Preact, Vite, Leaflet, CSS}{
+  \begin{itemize}
+    \item Application de decouverte et gestion de restaurants: filtres avances, carte interactive Leaflet, profils utilisateurs
+  \end{itemize}
+}
+
+\projentry{epiFlipBoard}{Full-stack Dev}{2025}{Python, TypeScript, React, SCSS}{
+  \begin{itemize}
+    \item Agregateur de flux d'actualites type Flipboard, backend Python + frontend React, 51 commits
+  \end{itemize}
+}
+
+\projentry{Soloty}{Dev freelance}{2026}{Shopify, React, Vite, CSS}{
+  \begin{itemize}
+    \item Boutique merch Shopify: catalogue, panier, timer de drop produit
+  \end{itemize}
+}
+
+\projentry{Bouktou}{Full-stack Dev}{2026}{React, Vite, i18next, EmailJS, Docker, CSS}{
+  \begin{itemize}
+    \item Site vitrine pour une conciergerie de luxe, trilingue FR/EN/AR avec support RTL
+    \item Design luxe minimaliste, formulaire de contact EmailJS, deploiement Docker
+  \end{itemize}
+}
+
+\projentry{MyTeams}{Protocole \& server}{2023}{C, TCP, RFC, CLI}{
+  \begin{itemize}
+    \item Clone de Microsoft Teams en reseau TCP, protocole RFC documente
+    \item Sockets TCP POSIX, persistance sur disque, interface CLI
+  \end{itemize}
+}
+
+\projentry{Heat My Floor}{Dev}{2025}{Java, Swing, OOP, GUI}{
+  \begin{itemize}
+    \item Application desktop de conception de pieces: rooms rectangulaires et polygonales, placement de meubles
+    \item Export PNG, undo/redo, interface graphique Java Swing
+  \end{itemize}
+}
+
+\projentry{Autres projets academiques}{}{2025}{Python, TypeScript, React, CSS}{
+  epiKodi (app media full-stack, API REST + React), epiCovid (dashboard COVID-19, aggregation de donnees + visualisation)
+}
+
+% ===============================================
+% FORMATION
+% ===============================================
+\section{Formation}
+
+\cventry{Expert en Ingenierie Logicielle, RNCP niv.~7}{Epitech Nice}{2022 -- 2027}{
+  Cursus de 5 ans par projets, en equipe, en autonomie. 5\textsuperscript{e} annee en cours. Projet EIP: DigiCoach (jury Greenlight juil.~2026).
+}
+
+\cventry{Certificat sur mesure en technologies de l'information}{Universite Laval, Quebec, Canada}{2025 -- 2026}{
+  Annee a l'etranger (4\textsuperscript{e} annee Epitech), cours en francais.\\
+  \textbf{Automne 2025:} GLO-3102 (A), IFT-2007 (B+), GLO-4003 (B), GLO-4035 (B-)\\
+  \textbf{Hiver 2026:} GLO-3112, GIF-3101, ENT-1000, MNG-1000 (en cours)
+}
+
+\cventry{Baccalaureat Technologique STI2D, mention Assez Bien}{Lycee Eucalyptus, Nice}{2019 -- 2022}{
+  Specialite Systemes d'Information et Numerique (SIN).
+}
+
+\end{document}

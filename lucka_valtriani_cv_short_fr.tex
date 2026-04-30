@@ -32,6 +32,8 @@
 \pagestyle{empty}
 \setlength{\parskip}{0pt}
 
+\IfFileExists{cv_updated.tex}{\input{cv_updated.tex}}{\newcommand{\cvupdated}{local build}}
+
 \newcommand{\cventry}[4]{%
   \noindent{\small\textbf{#1}}\ifx&#2&\else{\small\textit{\color{gray} --- #2}}\fi{\footnotesize\textcolor{lightgray}{\hfill#3}}\par\vspace{-2pt}%
   \ifx&#4&\else{\footnotesize #4}\fi
@@ -45,6 +47,7 @@
 \begin{center}
   {\Large\bfseries\color{accent} Lucka Valtriani}\\[3pt]
   {\small\color{gray} Developpeur Logiciel --- Backend \& Systemes | Recherche un stage en developpement}\\[4pt]
+  {\footnotesize\color{lightgray} CV UPDATED: \cvupdated}\\[2pt]
   {\footnotesize
     \href{mailto:lucka.valtriani@epitech.eu}{lucka.valtriani@epitech.eu}
     ~|~ Nice, France
@@ -57,7 +60,7 @@
 \vspace{3pt}
 
 \section{Profil}
-{\small Developpeur en cursus Epitech (RNCP niv.~7, 5\textsuperscript{e} annee), specialise \textbf{backend et systemes}. Experience concrete sur des APIs REST/WebSocket, architectures modulaires, Docker, CI/CD et monitoring (Prometheus, Grafana). Projets a forte charge (700+ joueurs simultanes), environnement Web3, freelance. Polyglotte technique: C/C++, Go, Python, Lua, TypeScript. Anglais professionnel (annee universitaire a l'Universite Laval, Quebec).}
+{\small Etudiant en 5\textsuperscript{e} annee a Epitech (RNCP niv.~7), specialise \textbf{backend et systemes}. Experience concrete sur des APIs REST/WebSocket, architectures modulaires, Docker, CI/CD et monitoring (Prometheus, Grafana). Projets a forte charge (700+ joueurs simultanes), environnement Web3, freelance. Polyglotte technique: C/C++, Go, Python, Lua, TypeScript. Anglais professionnel (annee universitaire a l'Universite Laval, Quebec).}
 
 \vspace{0pt}
 
@@ -71,6 +74,7 @@
 \textbf{Autres}         & Git, architecture logicielle, protocoles reseau (RFC), ECS, TCP/UDP \\
 \textbf{Outils IA}      & Claude (Anthropic), GitHub Copilot --- utilisation avancee en contexte de developpement \\
 \textbf{Langues}        & Francais (natif), Anglais professionnel, Allemand (niveau scolaire) \\
+\textbf{Soft skills}    & Gestion de projet, autonomie, adaptabilite, coordination d'equipe, live-ops, relation client \\
 \end{tabularx}
 }
 
