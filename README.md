@@ -12,6 +12,15 @@ Le but est de rendre mon CV fiable, tracable et facile a partager. Chaque modifi
 - Workflow CI : `.github/workflows/release-cv.yml`
 - Fichier de stamp genere par la CI : `cv_updated.inc` (ne pas versionner)
 
+## Voir les CV
+
+- Derniere release (PDFs en pieces jointes) : https://github.com/187Lucka/CV/releases/latest
+- Toutes les releases : https://github.com/187Lucka/CV/releases
+- Liens directs (derniere release) :
+	- CV backend FR : https://github.com/187Lucka/CV/releases/latest/download/lucka_valtriani_cv_backend_fr.pdf
+	- CV long FR : https://github.com/187Lucka/CV/releases/latest/download/lucka_valtriani_cv_long_fr.pdf
+	- CV short FR : https://github.com/187Lucka/CV/releases/latest/download/lucka_valtriani_cv_short_fr.pdf
+
 ## Prerequis locaux
 
 - TeX Live (ou MikTeX)
