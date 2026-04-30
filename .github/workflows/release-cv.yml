@@ -19,7 +19,7 @@ jobs:
       - name: Generate CV updated stamp
         run: |
           ts=$(date -u +"%Y-%m-%d %H:%M UTC")
-          echo "\\newcommand{\\cvupdated}{${ts}}" > cv_updated.tex
+          echo "\\newcommand{\\cvupdated}{${ts}}" > cv_updated.inc
 
       - name: Build PDFs with latexmk
         uses: xu-cheng/latex-action@v3
