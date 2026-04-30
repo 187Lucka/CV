@@ -1,0 +1,151 @@
+\documentclass[9pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[a4paper, top=0.8cm, bottom=1.1cm, left=1.1cm, right=1.1cm]{geometry}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[dvipsnames,svgnames,x11names]{xcolor}
+\usepackage{hyperref}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{parskip}
+
+\definecolor{accent}{HTML}{1A1A2E}
+\definecolor{rulecol}{HTML}{1A1A2E}
+\definecolor{linkcolor}{HTML}{0F3460}
+\definecolor{gray}{HTML}{444444}
+\definecolor{lightgray}{HTML}{777777}
+
+\hypersetup{colorlinks=true, urlcolor=linkcolor, hidelinks}
+
+\newcommand{\sectionrule}{\vspace{-3pt}{\color{accent}\rule{\linewidth}{0.6pt}}\vspace{1pt}}
+\titleformat{\section}
+  {\normalsize\bfseries}
+  {}{0em}{\MakeUppercase}
+  [\sectionrule]
+\titlespacing{\section}{0pt}{7pt}{3pt}
+
+\pagestyle{empty}
+\setlength{\parskip}{0pt}
+
+\newcommand{\cventry}[4]{%
+  \noindent{\small\textbf{#1}}\ifx&#2&\else{\small\textit{\color{gray} --- #2}}\fi{\footnotesize\textcolor{lightgray}{\hfill#3}}\par\vspace{-2pt}%
+  \ifx&#4&\else{\footnotesize #4}\fi
+  \vspace{3pt}
+}
+
+\setlist[itemize]{noitemsep, topsep=0pt, leftmargin=1.1em, label=\textbullet}
+
+\begin{document}
+
+\begin{center}
+  {\Large\bfseries\color{accent} Lucka Valtriani}\\[3pt]
+  {\small\color{gray} Developpeur Logiciel --- Backend \& Systemes | Recherche un stage en developpement}\\[4pt]
+  {\footnotesize
+    \href{mailto:lucka.valtriani@epitech.eu}{lucka.valtriani@epitech.eu}
+    ~|~ Nice, France
+    ~|~ \href{https://github.com/187lucka}{github.com/187lucka}
+    ~|~ \href{https://www.linkedin.com/in/lucka-valtriani-8a8551258/}{linkedin.com/in/lucka-valtriani}
+    ~|~ \href{https://valtriani.dev}{valtriani.dev}
+  }
+\end{center}
+
+\vspace{3pt}
+
+\section{Profil}
+{\small Developpeur en cursus Epitech (RNCP niv.~7, 5\textsuperscript{e} annee), specialise \textbf{backend et systemes}. Experience concrete sur des APIs REST/WebSocket, architectures modulaires, Docker, CI/CD et monitoring (Prometheus, Grafana). Projets a forte charge (700+ joueurs simultanes), environnement Web3, freelance. Polyglotte technique: C/C++, Go, Python, Lua, TypeScript. Anglais professionnel (annee universitaire a l'Universite Laval, Quebec).}
+
+\vspace{0pt}
+
+\section{Competences Techniques}
+{\small
+\begin{tabularx}{\linewidth}{@{} l X @{}}
+\textbf{Langages}       & C, C++, Python, Lua, JavaScript, TypeScript, Go, Java \\
+\textbf{Backend}        & API REST, WebSocket, PostgreSQL, MySQL, JWT, OAuth, Node.js \\
+\textbf{Infra / DevOps} & Docker, CI/CD, Prometheus, Grafana, Dokploy, Nginx \\
+\textbf{Frontend}       & React, Preact, Vite, HTML/CSS/SCSS, i18n \\
+\textbf{Autres}         & Git, architecture logicielle, protocoles reseau (RFC), ECS, TCP/UDP \\
+\textbf{Outils IA}      & Claude (Anthropic), GitHub Copilot --- utilisation avancee en contexte de developpement \\
+\textbf{Langues}        & Francais (natif), Anglais professionnel, Allemand (niveau scolaire) \\
+\end{tabularx}
+}
+
+\vspace{1pt}
+
+\section{Experiences Professionnelles}
+
+\cventry{Lead Backend Engineer / DevOps}{CLYR (Web3)}{2025 -- aujourd'hui}{
+  \begin{itemize}
+    \item Conception et maintenance de l'API backend d'une plateforme Web3 d'offres d'emploi
+    \item Infrastructure Docker, pipelines CI/CD, monitoring Prometheus + Grafana, deploiement via Dokploy
+  \end{itemize}
+}
+
+\cventry{Main Dev \& Project Manager}{NoFace RP (FiveM)}{Mars -- Aout 2025}{
+  \begin{itemize}
+    \item Serveur FiveM Free-Access \textbf{($\sim$700 joueurs simultanes)} et Whitelist ($\sim$200) avec environnement de production stable
+    \item Dev principal, gestion de projet, coordination equipe, live-ops, deplacement de features en continu
+  \end{itemize}
+}
+
+\cventry{Lead Developpeur}{Infinite Corporation (FiveM)}{Juil. 2023 -- Juil. 2025}{
+  \begin{itemize}
+    \item Developpement et maintenance sur 2 ans d'un framework serveur FiveM maison en Lua
+    \item Architecture evenementielle, 15+ modules independants, event bus, persistance SQL, UI React NUI
+  \end{itemize}
+}
+
+\cventry{Stage Developpeur}{Monaco Mediaax}{Sept. 2023}{
+  \begin{itemize}
+    \item Conception et developpement de projets numeriques (sites web, applications), gestion des demandes clients
+  \end{itemize}
+}
+
+\cventry{Fondateur \& Developpeur}{187shop (freelance)}{2022 -- aujourd'hui}{
+  \begin{itemize}
+    \item Creation et vente de scripts Lua/JS pour communautes FiveM; support client, pricing, devis, relation commerciale
+  \end{itemize}
+}
+
+\cventry{Achat-revente}{Sneakers \& vetements de collection (independant)}{2022 -- aujourd'hui}{
+  \begin{itemize}
+    \item Sourcing, pricing, negociation, gestion de stock, revente sur plateformes specialisees (relation client, SAV)
+  \end{itemize}
+}
+
+\vspace{1pt}
+
+\section{Projets Techniques (selection)}
+
+\begin{tabularx}{\linewidth}{@{} l X r @{}}
+\textbf{DigiCoach} & \footnotesize Go, Flutter, PostgreSQL, WebSocket, Prometheus --- Coaching sportif IA, skeleton tracking 8 articulations. \textit{EIP Epitech, jury juil.~2026} & \footnotesize 2026 \\[4pt]
+\textbf{R-Type} & \footnotesize C++, Boost::asio, SFML, ECS, UDP --- Jeu multijoueur reseau, serveur multithread, architecture ECS, protocole RFC & \footnotesize 2024 \\[4pt]
+\textbf{Zappy} & \footnotesize C/C++, Python, Raylib, TCP --- IA distribuee sur reseau, serveur C, GUI temps reel & \footnotesize 2024 \\[4pt]
+\textbf{CLYR Bot} & \footnotesize Python, discord.py, aiohttp, MySQL, Docker --- Bot Discord multi-serveurs, webhook, hot-reload, 13 slash commands & \footnotesize 2025 \\[4pt]
+\textbf{Sneakers Tracker} & \footnotesize Python, TypeScript, React, REST API --- Suivi prix marche sneakers temps reel, 87 commits & \footnotesize 2025 \\[4pt]
+\textbf{Portfolio} & \footnotesize React, Vite, Docker, Nginx --- \href{https://valtriani.dev}{valtriani.dev}, i18n maison, SEO avance (JSON-LD, Open Graph) & \footnotesize 2026 \\[4pt]
+\textbf{Switch Game} & \footnotesize Lua, SQL, FiveM --- Evenement Twitch type Squid Game, mini-jeux custom, $\sim$15 streamers & \footnotesize 2023 \\[4pt]
+\textbf{TrottiUL} & \footnotesize Java, Docker, JWT, REST API, SMTP --- Gestion de trottinettes electriques, auth JWT, facturation PDF/JSON, systeme d'energie & \footnotesize 2025 \\[4pt]
+\textbf{Arcade} & \footnotesize C++, SFML, SDL2, Ncurses, Dylib --- Moteur de jeu a bibliotheques interchangeables, plugins .so hot-load, 3 jeux x 3 libs & \footnotesize 2024 \\[4pt]
+\textbf{Autres} & \footnotesize Raytracer C++ (Phong shading), uFood (Preact + Leaflet), epiFlipBoard (aggregateur flux, 51 commits), MyTeams (TCP RFC en C) & \\
+\end{tabularx}
+
+\vspace{1pt}
+
+\section{Formation}
+
+\cventry{Expert en Ingenierie Logicielle, RNCP niv.~7}{Epitech Nice}{2022 -- 2027}{
+  Pedagogie par projets, autonomie, travail en equipe. 5\textsuperscript{e} annee en cours.
+}
+
+\cventry{Certificat en Technologies de l'Information}{Universite Laval, Quebec, Canada}{2025 -- 2026}{
+  Annee a l'etranger (4\textsuperscript{e} annee Epitech), cours en francais. Automne~2025: GLO-3102~(A), IFT-2007~(B+), GLO-4003~(B), GLO-4035~(B-). Hiver~2026: GLO-3112, GIF-3101, ENT-1000, MNG-1000 (en cours).
+}
+
+\cventry{Baccalaureat Technologique STI2D, mention Assez Bien}{Lycee Eucalyptus, Nice}{2019 -- 2022}{}
+
+\end{document}
