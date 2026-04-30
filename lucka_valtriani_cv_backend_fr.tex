@@ -1,0 +1,143 @@
+\documentclass[9pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[a4paper, top=0.8cm, bottom=2.1cm, left=1.1cm, right=1.1cm]{geometry}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[dvipsnames,svgnames,x11names]{xcolor}
+\usepackage{hyperref}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{parskip}
+
+\definecolor{accent}{HTML}{1A1A2E}
+\definecolor{linkcolor}{HTML}{0F3460}
+\definecolor{gray}{HTML}{444444}
+\definecolor{lightgray}{HTML}{777777}
+
+\hypersetup{colorlinks=true, urlcolor=linkcolor, hidelinks}
+
+\newcommand{\sectionrule}{\vspace{-3pt}{\color{accent}\rule{\linewidth}{0.6pt}}\vspace{1pt}}
+\titleformat{\section}
+  {\normalsize\bfseries}
+  {}{0em}{\MakeUppercase}
+  [\sectionrule]
+\titlespacing{\section}{0pt}{9pt}{4pt}
+
+\pagestyle{empty}
+\setlength{\parskip}{0pt}
+
+\newcommand{\cventry}[4]{%
+  \noindent{\small\textbf{#1}}\ifx&#2&\else{\small\textit{\color{gray} --- #2}}\fi{\footnotesize\textcolor{lightgray}{\hfill#3}}\par\vspace{-2pt}%
+  \ifx&#4&\else{\footnotesize #4}\fi
+  \vspace{5pt}
+}
+
+\setlist[itemize]{noitemsep, topsep=0pt, leftmargin=1.1em, label=\textbullet}
+
+\begin{document}
+
+% ---- HEADER ----
+\begin{center}
+  {\Large\bfseries\color{accent} Lucka Valtriani}\\[3pt]
+  {\small\color{gray} Developpeur Backend | APIs REST \& WebSocket, Docker, CI/CD, Go, Python, Node.js}\\[5pt]
+  {\footnotesize
+    \href{mailto:lucka.valtriani@epitech.eu}{lucka.valtriani@epitech.eu}
+    ~|~ Nice, France
+    ~|~ \href{https://github.com/187lucka}{github.com/187lucka}
+    ~|~ \href{https://www.linkedin.com/in/lucka-valtriani-8a8551258/}{linkedin.com/in/lucka-valtriani}
+    ~|~ \href{https://valtriani.dev}{valtriani.dev}
+  }
+\end{center}
+
+\vspace{5pt}
+
+% ---- PROFIL ----
+\section{Profil}
+{\small Etudiant en 5\textsuperscript{e} annee a Epitech (RNCP niv.~7), specialise \textbf{backend et systemes}. Deux ans d'experience en production sur des architectures evenementielles, APIs REST/WebSocket, persistance SQL et monitoring (Prometheus, Grafana, Docker). Habitue aux environnements a forte charge (700+ connexions simultanees) et aux cycles de deploiement continu. Polyglotte technique: Go, Python, C/C++, Lua, TypeScript.}
+
+% ---- COMPETENCES ----
+\section{Competences Techniques}
+{\small
+\begin{tabularx}{\linewidth}{@{} l X @{}}
+\textbf{Langages}       & Go, Python, C, C++, Lua, JavaScript, TypeScript, Java \\[2pt]
+\textbf{Backend}        & API REST, WebSocket, PostgreSQL, MySQL, JWT, OAuth, Node.js, architecture evenementielle \\[2pt]
+\textbf{Infra / DevOps} & Docker, Docker Compose, CI/CD, Prometheus, Grafana, Dokploy, Nginx \\[2pt]
+\textbf{Protocoles}     & TCP/UDP, conception de protocoles reseau documentes (RFC), ECS \\[2pt]
+\textbf{Outils}         & Git, GitHub, Claude (Anthropic), GitHub Copilot \\[2pt]
+\textbf{Langues}        & Francais (natif), Anglais professionnel, Allemand (niveau scolaire) \\[2pt]
+\textbf{Soft skills}    & Autonomie, gestion de projet, live-ops, adaptabilite, coordination d'equipe \\
+\end{tabularx}
+}
+
+% ---- EXPERIENCES ----
+\section{Experiences Professionnelles}
+
+\cventry{Lead Backend Engineer / DevOps}{CLYR (Web3)}{2025 -- aujourd'hui}{
+  \begin{itemize}
+    \item Conception et maintenance de l'\textbf{API backend} d'une plateforme Web3 d'offres d'emploi
+    \item Infrastructure Docker, pipelines CI/CD, monitoring Prometheus + Grafana, deploiement Dokploy
+  \end{itemize}
+}
+
+\cventry{Main Dev \& Project Manager}{NoFace RP (FiveM)}{Mars -- Aout 2025}{
+  \begin{itemize}
+    \item Architecture et maintien d'un \textbf{serveur en production a $\sim$700 joueurs simultanes} (Free-Access) et $\sim$200 (Whitelist)
+    \item Dev principal backend, live-ops, deploiement continu de features, coordination equipe
+  \end{itemize}
+}
+
+\cventry{Lead Developpeur}{Infinite Corporation (FiveM)}{Juil. 2023 -- Juil. 2025}{
+  \begin{itemize}
+    \item Developpement sur 2 ans d'un \textbf{framework serveur modulaire} en Lua: architecture evenementielle, 15+ modules, event bus
+    \item Persistance SQL, outils internes, maintenance live, interface React NUI
+  \end{itemize}
+}
+
+\cventry{Stage Developpeur}{Monaco Mediaax}{Sept. 2023}{
+  \begin{itemize}
+    \item Developpement de projets web et applications, gestion des demandes clients
+  \end{itemize}
+}
+
+\cventry{Fondateur \& Developpeur}{187shop (freelance)}{2022 -- aujourd'hui}{
+  \begin{itemize}
+    \item Scripts Lua/JS backend pour serveurs FiveM; support, pricing, relation commerciale directe
+  \end{itemize}
+}
+
+% ---- PROJETS ----
+\section{Projets Backend (selection)}
+
+\begin{tabularx}{\linewidth}{@{} l X r @{}}
+\textbf{DigiCoach} & \footnotesize \textbf{Go}, Flutter, PostgreSQL, \textbf{WebSocket}, Prometheus, Docker --- Backend coaching IA, skeleton tracking temps reel. \textit{EIP Epitech} & \footnotesize 2026 \\[5pt]
+\textbf{R-Type} & \footnotesize \textbf{C++}, Boost::asio, SFML, ECS, \textbf{UDP} --- Serveur multijoueur multithread, protocole UDP documente (RFC) & \footnotesize 2024 \\[5pt]
+\textbf{Zappy} & \footnotesize \textbf{C/C++}, Python, TCP --- Serveur multi-clients, IA distribuee via protocole TCP texte, GUI temps reel & \footnotesize 2024 \\[5pt]
+\textbf{TrottiUL} & \footnotesize \textbf{Java}, Docker, \textbf{JWT}, \textbf{REST API}, SMTP --- Auth JWT, facturation PDF/JSON, systeme d'energie & \footnotesize 2025 \\[5pt]
+\textbf{CLYR Bot} & \footnotesize \textbf{Python}, aiohttp, \textbf{MySQL}, Docker --- Webhook server, broadcast multi-serveur, hot-reload cogs & \footnotesize 2025 \\[5pt]
+\textbf{Sneakers Tracker} & \footnotesize \textbf{Python}, TypeScript, React, \textbf{REST API} --- Suivi prix temps reel, integration APIs externes, 87 commits & \footnotesize 2025 \\[5pt]
+\textbf{MyTeams} & \footnotesize \textbf{C}, TCP POSIX, RFC --- Clone Teams en reseau TCP, protocole RFC documente, persistance disque & \footnotesize 2023 \\[5pt]
+\textbf{Switch Game} & \footnotesize \textbf{Lua}, SQL, FiveM, Live-Ops --- Backend evenementiel temps reel, $\sim$15 streamers simultanes & \footnotesize 2023 \\[5pt]
+\textbf{uTasks} & \footnotesize \textbf{TypeScript}, \textbf{Node.js}, React, Docker, pnpm --- App de gestion de taches, API REST, stack Docker complete & \footnotesize 2025 \\
+\end{tabularx}
+
+% ---- FORMATION ----
+\vspace{2pt}
+
+\section{Formation}
+
+\cventry{Expert en Ingenierie Logicielle, RNCP niv.~7}{Epitech Nice}{2022 -- 2027}{
+  Pedagogie par projets, autonomie, travail en equipe. 5\textsuperscript{e} annee en cours.
+}
+
+\cventry{Certificat en Technologies de l'Information}{Universite Laval, Quebec, Canada}{2025 -- 2026}{
+  Annee a l'etranger, cours en francais. Automne~2025: GLO-3102~(A), IFT-2007~(B+), GLO-4003~(B), GLO-4035~(B-). Hiver~2026: en cours.
+}
+
+\cventry{Baccalaureat Technologique STI2D, mention Assez Bien}{Lycee Eucalyptus, Nice}{2019 -- 2022}{}
+
+\end{document}
