@@ -16,10 +16,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Build PDF with latexmk
+      - name: Generate CV updated stamp
+        run: |
+          ts=$(date -u +"%Y-%m-%d %H:%M UTC")
+          echo "\\newcommand{\\cvupdated}{${ts}}" > cv_updated.tex
+
+      - name: Build PDFs with latexmk
         uses: xu-cheng/latex-action@v3
         with:
-          root_file: lucka_valtriani_cv_short_fr.tex
+          root_file: |
+            *.tex
           latexmk_use_xelatex: false
           args: -pdf -interaction=nonstopmode -halt-on-error
 
@@ -37,6 +43,6 @@ jobs:
         with:
           tag_name: ${{ steps.meta.outputs.tag }}
           name: ${{ steps.meta.outputs.name }}
-          files: lucka_valtriani_cv_short_fr.pdf
+          files: "*.pdf"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
