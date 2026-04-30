@@ -41,7 +41,7 @@ jobs:
           ts_human=$(TZ=Europe/Paris date +"%d/%m/%Y %H:%M")
           tag="cv-${ts_compact}-${short_sha}"
           echo "tag=${tag}" >> "$GITHUB_OUTPUT"
-          echo "name=CV MIS A JOUR: ${ts_human} (heure de Paris)" >> "$GITHUB_OUTPUT"
+          echo "name=CV UPDATED: ${ts_human} (Paris time)" >> "$GITHUB_OUTPUT"
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
