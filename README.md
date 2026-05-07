@@ -9,6 +9,9 @@ Le but est de rendre mon CV fiable, tracable et facile a partager. Chaque modifi
 ## Contenu
 
 - CV principal : `lucka_valtriani_cv_short_fr.tex`
+- CV backend : `lucka_valtriani_cv_backend_fr.tex`
+- CV long : `lucka_valtriani_cv_long_fr.tex`
+- Design HTML : `lucka_valtriani_cv_design.html`
 - Workflow CI : `.github/workflows/release-cv.yml`
 - Fichier de stamp genere par la CI : `cv_updated.inc` (ne pas versionner)
 
@@ -48,6 +51,21 @@ Nettoyer les artefacts :
 ```bash
 latexmk -C
 ```
+
+## Version HTML / PDF
+
+Le fichier HTML sert a generer un PDF visuellement identique via impression.
+
+### Export PDF (Chrome / Edge)
+
+1. Ouvre `lucka_valtriani_cv_design.html` dans le navigateur.
+2. Ouvre l'impression.
+3. Choisis :
+	- Format : A4
+	- Marges : aucune
+	- Echelle : 100%
+	- Options : activer l'arriere-plan (couleurs/graphismes)
+4. Exporte en PDF.
 
 ## CI / Releases GitHub
 
