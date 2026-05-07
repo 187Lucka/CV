@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - "**/*.tex"
+      - "**/*.html"
       - ".github/workflows/release-cv.yml"
 
 permissions:
@@ -25,13 +26,23 @@ jobs:
           ts_human=$(TZ=Europe/Paris date +"%d/%m/%Y %H:%M")
           echo "\\newcommand{\\cvupdated}{${ts_human} (heure de Paris)}" > cv_updated.inc
 
-      - name: Build PDFs with latexmk
+      - name: Build LaTeX PDFs
         uses: xu-cheng/latex-action@v3
         with:
           root_file: |
             *.tex
           latexmk_use_xelatex: false
           args: -pdf -interaction=nonstopmode -halt-on-error
+
+      - name: Build HTML PDFs with WeasyPrint
+        run: |
+          pip install weasyprint --quiet
+          for f in *.html; do
+            [ -f "$f" ] || continue
+            out="${f%.html}.pdf"
+            echo "Converting $f → $out"
+            python3 -m weasyprint "$f" "$out"
+          done
 
       - name: Set release metadata
         id: meta

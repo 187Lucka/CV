@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --violet:  #6C31E3;
+    --teal:    #00C9A7;
+    --coral:   #FF6B6B;
+    --yellow:  #FFD93D;
+    --dark:    #0D0D0D;
+    --mid:     #1E1E2E;
+    --soft:    #F4F1FF;
+    --white:   #FFFFFF;
+    --gray:    #888;
+  }
+
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
+  body {
+    font-family: 'Space Grotesk', sans-serif;
+    background: var(--white);
+    width: 210mm;
+    height: 297mm;
+    display: grid;
+    grid-template-columns: 68mm 1fr;
+    overflow: hidden;
+  }
+
+  /* ── SIDEBAR ── */
+  aside {
+    background: var(--mid);
+    color: var(--white);
+    padding: 28px 20px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 21px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  aside::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 130px; height: 130px;
+    border-radius: 50%;
+    background: var(--violet);
+    opacity: 0.35;
+  }
+  aside::after {
+    content: '';
+    position: absolute;
+    bottom: 60px; left: -30px;
+    width: 90px; height: 90px;
+    border-radius: 50%;
+    background: var(--teal);
+    opacity: 0.2;
+  }
+
+  .name-block {
+    position: relative;
+    z-index: 1;
+  }
+  .name-block h1 {
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+  }
+  .name-block h1 span {
+    color: var(--teal);
+  }
+  .name-block .title {
+    margin-top: 6px;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--gray);
+  }
+
+  .tag-badge {
+    display: inline-block;
+    background: var(--violet);
+    color: var(--white);
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 20px;
+    margin-top: 8px;
+  }
+
+  /* contact */
+  .contact-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .contact-list li {
+    font-size: 8.5px;
+    color: #ccc;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .contact-list li .dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--teal);
+    flex-shrink: 0;
+  }
+  .contact-list a { color: #ccc; text-decoration: none; }
+
+  /* sidebar sections */
+  .s-section { position: relative; z-index: 1; }
+  .s-section h3 {
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 11px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid rgba(0,201,167,0.3);
+  }
+
+  /* skills pills */
+  .pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+  .pill {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    color: #e0e0e0;
+    font-size: 8px;
+    font-weight: 500;
+    padding: 3px 7px;
+    border-radius: 4px;
+  }
+  .pill.accent { background: rgba(108,49,227,0.4); border-color: var(--violet); color: #d4b8ff; }
+  .pill.teal   { background: rgba(0,201,167,0.2);  border-color: var(--teal);   color: #a0ffe8; }
+
+  /* stack rows */
+  .stack-row { margin-bottom: 5px; }
+  .stack-row .label {
+    font-size: 7.5px;
+    font-weight: 600;
+    color: var(--gray);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 3px;
+  }
+
+  /* infos */
+  .info-list { list-style: none; display: flex; flex-direction: column; gap: 5px; }
+  .info-list li { font-size: 8px; color: #ccc; line-height: 1.4; }
+  .info-list li strong { color: var(--white); }
+
+  /* ── MAIN ── */
+  main {
+    padding: 28px 22px 20px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 21px;
+    background: var(--white);
+  }
+
+  /* profil */
+  .profil-block {
+    background: var(--soft);
+    border-left: 4px solid var(--violet);
+    padding: 15px 18px;
+    border-radius: 0 8px 8px 0;
+  }
+  .profil-block p {
+    font-size: 9px;
+    color: #333;
+    line-height: 1.6;
+  }
+
+  /* section header */
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 11px;
+  }
+  .section-header .bar {
+    width: 4px;
+    height: 16px;
+    border-radius: 2px;
+  }
+  .section-header h2 {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--dark);
+  }
+
+  /* exp items */
+  .exp-item {
+    margin-bottom: 11px;
+    padding-left: 10px;
+    border-left: 2px solid #eee;
+    position: relative;
+  }
+  .exp-item::before {
+    content: '';
+    position: absolute;
+    left: -5px; top: 4px;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--white);
+    border: 2px solid var(--violet);
+  }
+  .exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .exp-title { font-size: 9px; font-weight: 700; color: var(--dark); }
+  .exp-company { font-size: 8px; color: var(--violet); font-weight: 600; }
+  .exp-date {
+    font-size: 7.5px;
+    color: var(--gray);
+    font-family: 'DM Mono', monospace;
+    white-space: nowrap;
+  }
+  .exp-bullets {
+    list-style: none;
+    margin-top: 3px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .exp-bullets li {
+    font-size: 8px;
+    color: #444;
+    line-height: 1.4;
+    padding-left: 8px;
+    position: relative;
+  }
+  .exp-bullets li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--teal);
+    font-size: 7px;
+  }
+
+  /* projets grid */
+  .proj-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .proj-card {
+    border-radius: 8px;
+    padding: 14px 14px;
+    position: relative;
+    overflow: hidden;
+  }
+  .proj-card::after {
+    content: '';
+    position: absolute;
+    bottom: -10px; right: -10px;
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+  }
+  .proj-card.c1 { background: linear-gradient(135deg, #6C31E3 0%, #9B6DFF 100%); }
+  .proj-card.c2 { background: linear-gradient(135deg, #00C9A7 0%, #00876f 100%); }
+  .proj-card.c3 { background: linear-gradient(135deg, #FF6B6B 0%, #c93c3c 100%); }
+  .proj-card.c4 { background: linear-gradient(135deg, #FFD93D 0%, #d4a200 100%); }
+  .proj-card.c5 { background: linear-gradient(135deg, #0D0D0D 0%, #333 100%); }
+  .proj-card.c6 { background: linear-gradient(135deg, #3A86FF 0%, #1a4fcc 100%); }
+
+  .proj-card .proj-name {
+    font-size: 9px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 2px;
+  }
+  .proj-card.c4 .proj-name { color: var(--dark); }
+  .proj-card .proj-stack {
+    font-size: 7px;
+    color: rgba(255,255,255,0.8);
+    font-family: 'DM Mono', monospace;
+    line-height: 1.4;
+  }
+  .proj-card.c4 .proj-stack { color: rgba(0,0,0,0.6); }
+  .proj-card .proj-desc {
+    font-size: 8px;
+    color: rgba(255,255,255,0.9);
+    margin-top: 3px;
+    line-height: 1.35;
+  }
+  .proj-card.c4 .proj-desc { color: rgba(0,0,0,0.75); }
+
+  /* formation */
+  .edu-item {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 12px;
+    align-items: flex-start;
+  }
+  .edu-badge {
+    min-width: 36px; height: 36px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+  .edu-badge.v { background: #f0e8ff; }
+  .edu-badge.t { background: #e0f8f3; }
+  .edu-badge.b { background: #fff3e0; }
+  .edu-info .edu-degree { font-size: 8.5px; font-weight: 700; color: var(--dark); }
+  .edu-info .edu-school { font-size: 8px; color: var(--violet); font-weight: 600; }
+  .edu-info .edu-date  { font-size: 7.5px; color: var(--gray); font-family: 'DM Mono', monospace; }
+  .edu-info .edu-note  { font-size: 7.5px; color: #555; margin-top: 2px; line-height: 1.4; }
+</style>
+</head>
+<body>
+
+<!-- ══════════════ SIDEBAR ══════════════ -->
+<aside>
+
+  <div class="name-block">
+    <h1>Lucka<br><span>Valtriani</span></h1>
+    <div class="title">Developpeur Logiciel</div>
+    <span class="tag-badge">Recherche un stage</span>
+  </div>
+
+  <ul class="contact-list">
+    <li><span class="dot"></span>lucka.valtriani@epitech.eu</li>
+    <li><span class="dot"></span>Nice, France</li>
+    <li><span class="dot"></span><a href="https://valtriani.dev">valtriani.dev</a></li>
+    <li><span class="dot"></span><a href="https://github.com/187lucka">github.com/187lucka</a></li>
+    <li><span class="dot"></span><a href="https://linkedin.com/in/lucka-valtriani-8a8551258">linkedin/lucka-valtriani</a></li>
+  </ul>
+
+  <div class="s-section">
+    <h3>Langages</h3>
+    <div class="pills">
+      <span class="pill accent">Go</span>
+      <span class="pill accent">Python</span>
+      <span class="pill accent">C / C++</span>
+      <span class="pill accent">TypeScript</span>
+      <span class="pill">Lua</span>
+      <span class="pill">Java</span>
+      <span class="pill">JavaScript</span>
+    </div>
+  </div>
+
+  <div class="s-section">
+    <h3>Backend & Infra</h3>
+    <div class="pills">
+      <span class="pill teal">API REST</span>
+      <span class="pill teal">WebSocket</span>
+      <span class="pill teal">PostgreSQL</span>
+      <span class="pill teal">MySQL</span>
+      <span class="pill teal">JWT / OAuth</span>
+      <span class="pill teal">Docker</span>
+      <span class="pill teal">CI/CD</span>
+      <span class="pill teal">Prometheus</span>
+      <span class="pill teal">Grafana</span>
+      <span class="pill teal">Nginx</span>
+    </div>
+  </div>
+
+  <div class="s-section">
+    <h3>Frontend</h3>
+    <div class="pills">
+      <span class="pill">React</span>
+      <span class="pill">Preact</span>
+      <span class="pill">Vite</span>
+      <span class="pill">HTML/CSS</span>
+      <span class="pill">i18n</span>
+    </div>
+  </div>
+
+  <div class="s-section">
+    <h3>Outils & Divers</h3>
+    <div class="pills">
+      <span class="pill">Git / GitHub</span>
+      <span class="pill">Claude AI</span>
+      <span class="pill">Copilot</span>
+      <span class="pill">TCP/UDP</span>
+      <span class="pill">ECS / RFC</span>
+    </div>
+  </div>
+
+  <div class="s-section">
+    <h3>Soft Skills</h3>
+    <ul class="info-list">
+      <li>Gestion de projet</li>
+      <li>Autonomie & adaptabilite</li>
+      <li>Live-ops & coordination</li>
+      <li>Relation client</li>
+    </ul>
+  </div>
+
+  <div class="s-section">
+    <h3>Langues</h3>
+    <ul class="info-list">
+      <li><strong>Francais</strong> — natif</li>
+      <li><strong>Anglais</strong> — professionnel</li>
+      <li><strong>Allemand</strong> — scolaire</li>
+    </ul>
+  </div>
+
+  <div class="s-section">
+    <h3>Autres projets</h3>
+    <ul class="info-list">
+      <li><strong>Arcade</strong> — C++, plugins .so hot-load, 3 libs graphiques</li>
+      <li><strong>Raytracer</strong> — C++, Phong shading, intersections</li>
+      <li><strong>uFood</strong> — Preact, Vite, Leaflet, carte interactive</li>
+      <li><strong>epiFlipBoard</strong> — Python + React, 51 commits</li>
+      <li><strong>Bouktou</strong> — React, i18next, FR/EN/AR + RTL</li>
+    </ul>
+  </div>
+
+  <div class="s-section">
+    <h3>Infos</h3>
+    <ul class="info-list">
+      <li><strong>Permis B</strong></li>
+      <li><strong>EIP Epitech</strong> — DigiCoach (jury juil. 2026)</li>
+      <li><strong>Interets</strong> — Sneakers, gaming, veille tech</li>
+    </ul>
+  </div>
+
+</aside>
+
+<!-- ══════════════ MAIN ══════════════ -->
+<main>
+
+  <!-- PROFIL -->
+  <div class="profil-block">
+    <p>Etudiant en 5<sup>e</sup> annee a Epitech (RNCP niv. 7), specialise <strong>backend et systemes</strong>. Experience en production sur des APIs REST/WebSocket, architectures modulaires, Docker et monitoring. Projets a forte charge (700+ joueurs simultanes), environnement Web3, freelance actif depuis 2022. Annee universitaire 2025–2026 a l'Universite Laval (Quebec).</p>
+  </div>
+
+  <!-- EXPERIENCES -->
+  <div>
+    <div class="section-header">
+      <div class="bar" style="background:var(--violet)"></div>
+      <h2>Experiences</h2>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <div>
+          <span class="exp-title">Lead Backend Engineer / DevOps</span>
+          <span style="color:#ccc;font-size:8px"> — </span>
+          <span class="exp-company">CLYR (Web3)</span>
+        </div>
+        <span class="exp-date">2025 → aujourd'hui</span>
+      </div>
+      <ul class="exp-bullets">
+        <li>API backend d'une plateforme Web3 d'offres d'emploi; architecture Docker, pipelines CI/CD, monitoring Prometheus + Grafana, deploiement Dokploy</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <div>
+          <span class="exp-title">Main Dev & Project Manager</span>
+          <span style="color:#ccc;font-size:8px"> — </span>
+          <span class="exp-company">NoFace RP (FiveM)</span>
+        </div>
+        <span class="exp-date">Mars → Août 2025</span>
+      </div>
+      <ul class="exp-bullets">
+        <li>Serveur FiveM en production atteignant <strong>~700 joueurs simultanes</strong> (Free-Access) et ~200 (Whitelist)</li><li>Dev principal, live-ops, deploiement continu de features, coordination d'equipe</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <div>
+          <span class="exp-title">Lead Developpeur</span>
+          <span style="color:#ccc;font-size:8px"> — </span>
+          <span class="exp-company">Infinite Corporation (FiveM)</span>
+        </div>
+        <span class="exp-date">2023 → 2025</span>
+      </div>
+      <ul class="exp-bullets">
+        <li>Framework serveur Lua sur 2 ans: architecture evenementielle, 15+ modules independants, event bus interne</li><li>Persistance SQL, outils de debug internes, UI React NUI integree, maintenance live</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <div>
+          <span class="exp-title">Stage Developpeur</span>
+          <span style="color:#ccc;font-size:8px"> — </span>
+          <span class="exp-company">Monaco Mediaax</span>
+        </div>
+        <span class="exp-date">Sept. 2023</span>
+      </div>
+      <ul class="exp-bullets">
+        <li>Conception de sites et applications, gestion clients</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <div>
+          <span class="exp-title">Fondateur & Developpeur</span>
+          <span style="color:#ccc;font-size:8px"> — </span>
+          <span class="exp-company">187shop (freelance)</span>
+        </div>
+        <span class="exp-date">2022 → aujourd'hui</span>
+      </div>
+      <ul class="exp-bullets">
+        <li>Creation et vente de scripts Lua/JS pour communautes FiveM, support client, pricing, devis</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <div>
+          <span class="exp-title">Achat-revente</span>
+          <span style="color:#ccc;font-size:8px"> — </span>
+          <span class="exp-company">Sneakers & vetements de collection</span>
+        </div>
+        <span class="exp-date">2022 → aujourd'hui</span>
+      </div>
+      <ul class="exp-bullets">
+        <li>Sourcing, pricing, negociation fournisseurs, gestion de stock, revente sur plateformes specialisees, SAV</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- PROJETS -->
+  <div>
+    <div class="section-header">
+      <div class="bar" style="background:var(--teal)"></div>
+      <h2>Projets</h2>
+    </div>
+    <div class="proj-grid" style="grid-template-columns:1fr 1fr 1fr;">
+      <div class="proj-card c1">
+        <div class="proj-name">DigiCoach</div>
+        <div class="proj-stack">Go · Flutter · PostgreSQL · WebSocket · Prometheus</div>
+        <div class="proj-desc">Coaching sportif IA, skeleton tracking 8 articulations. EIP Epitech 2026.</div>
+      </div>
+      <div class="proj-card c2">
+        <div class="proj-name">R-Type</div>
+        <div class="proj-stack">C++ · Boost::asio · SFML · ECS · UDP</div>
+        <div class="proj-desc">Jeu multijoueur reseau, serveur multithread, protocole UDP documente (RFC).</div>
+      </div>
+      <div class="proj-card c3">
+        <div class="proj-name">Zappy</div>
+        <div class="proj-stack">C · C++ · Python · Raylib · TCP</div>
+        <div class="proj-desc">IA distribuee sur reseau, GUI temps reel, protocole TCP multi-clients.</div>
+      </div>
+      <div class="proj-card c4">
+        <div class="proj-name">CLYR Bot</div>
+        <div class="proj-stack">Python · discord.py · MySQL · Docker</div>
+        <div class="proj-desc">Bot Discord multi-serveurs, webhook, hot-reload, 13 slash commands.</div>
+      </div>
+      <div class="proj-card c5">
+        <div class="proj-name">Switch Game</div>
+        <div class="proj-stack">Lua · SQL · FiveM · Live-Ops</div>
+        <div class="proj-desc">Event Twitch type Squid Game, ~15 streamers, mini-jeux custom.</div>
+      </div>
+      <div class="proj-card c6">
+        <div class="proj-name">TrottiUL</div>
+        <div class="proj-stack">Java · Docker · JWT · REST API · SMTP</div>
+        <div class="proj-desc">Gestion trottinettes, auth JWT, facturation PDF/JSON, stations.</div>
+      </div>
+      <div class="proj-card" style="background:linear-gradient(135deg,#FF9A3C 0%,#c95f00 100%);">
+        <div class="proj-name" style="color:#fff;">Sneakers Tracker</div>
+        <div class="proj-stack" style="color:rgba(255,255,255,0.8);">Python · TypeScript · React · REST API</div>
+        <div class="proj-desc" style="color:rgba(255,255,255,0.9);">Suivi prix marche sneakers temps reel, integration APIs externes, 87 commits.</div>
+      </div>
+      <div class="proj-card" style="background:linear-gradient(135deg,#2D3561 0%,#1a2040 100%);">
+        <div class="proj-name" style="color:#fff;">MyTeams</div>
+        <div class="proj-stack" style="color:rgba(255,255,255,0.8);">C · TCP POSIX · RFC · CLI</div>
+        <div class="proj-desc" style="color:rgba(255,255,255,0.9);">Clone Teams en reseau TCP, protocole RFC documente, persistance disque.</div>
+      </div>
+      <div class="proj-card" style="background:linear-gradient(135deg,#E84393 0%,#9b005e 100%);">
+        <div class="proj-name" style="color:#fff;">Portfolio</div>
+        <div class="proj-stack" style="color:rgba(255,255,255,0.8);">React · Vite · Docker · Nginx · CDN</div>
+        <div class="proj-desc" style="color:rgba(255,255,255,0.9);">valtriani.dev — i18n maison, SEO avance (JSON-LD, Open Graph, sitemap).</div>
+      </div>
+    </div>
+    <p style="font-size:7.5px;color:#666;margin-top:5px;line-height:1.5;">
+      <strong style="color:#333;">Autres:</strong>
+      Arcade (C++, plugins .so) &nbsp;·&nbsp; Raytracer C++ (Phong) &nbsp;·&nbsp; uFood (Preact, Leaflet) &nbsp;·&nbsp; epiFlipBoard (Python+React) &nbsp;·&nbsp; Bouktou (i18n FR/EN/AR) &nbsp;·&nbsp; Heat My Floor (Java Swing)
+    </p>
+  </div>
+
+  <!-- FORMATION -->
+  <div>
+    <div class="section-header">
+      <div class="bar" style="background:var(--coral)"></div>
+      <h2>Formation</h2>
+    </div>
+
+    <div class="edu-item">
+      <div class="edu-badge v">🎓</div>
+      <div class="edu-info">
+        <div class="edu-degree">Expert en Ingenierie Logicielle — RNCP niv. 7</div>
+        <div class="edu-school">Epitech Nice</div>
+        <div class="edu-date">2022 → 2027</div>
+        <div class="edu-note">5<sup>e</sup> annee en cours. EIP: DigiCoach (jury juil. 2026).</div>
+      </div>
+    </div>
+
+    <div class="edu-item">
+      <div class="edu-badge t">🍁</div>
+      <div class="edu-info">
+        <div class="edu-degree">Certificat en Technologies de l'Information</div>
+        <div class="edu-school">Universite Laval, Quebec, Canada</div>
+        <div class="edu-date">2025 → 2026</div>
+        <div class="edu-note">Annee a l'etranger, cours en francais. Automne 2025: GLO-3102 (A), IFT-2007 (B+), GLO-4003 (B), GLO-4035 (B-). Hiver 2026: en cours.</div>
+      </div>
+    </div>
+
+    <div class="edu-item" style="margin-bottom:0;">
+      <div class="edu-badge b">📋</div>
+      <div class="edu-info">
+        <div class="edu-degree">Baccalaureat STI2D — mention Assez Bien</div>
+        <div class="edu-school">Lycee Eucalyptus, Nice</div>
+        <div class="edu-date">2019 → 2022</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- INTERETS -->
+  <div style="display:flex;align-items:center;gap:8px;">
+    <div class="bar" style="background:var(--yellow);width:4px;height:14px;border-radius:2px;flex-shrink:0;"></div>
+    <span style="font-size:8.5px;color:#555;"><strong style="color:#111;font-size:8px;letter-spacing:1.2px;text-transform:uppercase;">Centres d'interet</strong> &nbsp;—&nbsp; Sneakers &amp; streetwear (achat-revente actif) &nbsp;·&nbsp; Gaming &nbsp;·&nbsp; Veille technologique &nbsp;·&nbsp; Trading &amp; marches de revente</span>
+  </div>
+
+</main>
+
+</body>
+</html>
