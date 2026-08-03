@@ -39,7 +39,7 @@ jobs:
         uses: xu-cheng/latex-action@v3
         with:
           root_file: |
-            *.tex
+            lucka_valtriani_*.tex
           latexmk_use_xelatex: false
           args: -pdf -interaction=nonstopmode -halt-on-error
 
