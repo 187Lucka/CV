@@ -1,0 +1,60 @@
+name: Generate Lettre de Motivation
+
+on:
+  workflow_dispatch:
+    inputs:
+      lettre_type:
+        description: "Type de lettre"
+        required: true
+        type: choice
+        options:
+          - dev
+          - backend
+          - web
+          - other
+        default: dev
+      entreprise:
+        description: "Nom de l'entreprise"
+        required: true
+        type: string
+      poste:
+        description: "Intitule du poste"
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Inject phone number
+        run: python3 scripts/inject_phone.py
+        env:
+          PHONE_NUMBER: ${{ secrets.PHONE_NUMBER }}
+
+      - name: Inject entreprise and poste
+        run: python3 scripts/inject_lettre.py
+        env:
+          LETTRE_TYPE: ${{ inputs.lettre_type }}
+          ENTREPRISE:  ${{ inputs.entreprise }}
+          POSTE:       ${{ inputs.poste }}
+
+      - name: Compile letter PDF
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: lucka_valtriani_lettre_${{ inputs.lettre_type }}_fr.tex
+          latexmk_use_xelatex: false
+          args: -pdf -interaction=nonstopmode -halt-on-error
+
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: lettre-${{ inputs.lettre_type }}-${{ inputs.entreprise }}
+          path: lucka_valtriani_lettre_${{ inputs.lettre_type }}_fr.pdf
+          retention-days: 7
