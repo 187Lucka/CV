@@ -29,6 +29,7 @@ jobs:
         env:
           TOKEN: ${{ secrets.PRIVATE_REPO_TOKEN }}
         run: |
-          REMOTE_URL="https://x-access-token:${TOKEN}@github.com/187Lucka/CV-private.git"
-          git remote add private "${REMOTE_URL}"
+          B64=$(printf 'x-access-token:%s' "${TOKEN}" | base64 | tr -d '\n')
+          git remote add private https://github.com/187Lucka/CV-private.git
+          git config --local http.https://github.com/187Lucka/CV-private/.extraheader "Authorization: Basic ${B64}"
           git push private main --force
