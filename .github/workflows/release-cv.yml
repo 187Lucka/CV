@@ -28,26 +28,7 @@ jobs:
           echo "\\newcommand{\\cvupdated}{${ts_human} (heure de Paris)}" > cv_updated.inc
 
       - name: Inject phone number into CV
-        run: |
-          python3 - <<'EOF'
-import os, sys
-phone = os.environ.get('PHONE_NUMBER', '').strip()
-if not phone:
-    print("No PHONE_NUMBER secret set, skipping.")
-    sys.exit(0)
-path = 'lucka_valtriani_cv_other_fr.tex'
-with open(path, 'r', encoding='utf-8') as f:
-    content = f.read()
-old = r'\newcommand{\myphone}{}'
-new = r'\newcommand{\myphone}{' + phone + '}'
-if old not in content:
-    print(f"ERROR: marker not found in {path}")
-    sys.exit(1)
-content = content.replace(old, new, 1)
-with open(path, 'w', encoding='utf-8') as f:
-    f.write(content)
-print(f"Phone injected ({len(phone)} chars).")
-EOF
+        run: python3 scripts/inject_phone.py
         env:
           PHONE_NUMBER: ${{ secrets.PHONE_NUMBER }}
 
