@@ -14,10 +14,21 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Verify token access
+        env:
+          TOKEN: ${{ secrets.PRIVATE_REPO_TOKEN }}
+        run: |
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" -H "Authorization: token ${TOKEN}" https://api.github.com/repos/187Lucka/CV-private)
+          echo "API response: ${STATUS}"
+          if [ "${STATUS}" != "200" ]; then
+            echo "Token cannot access CV-private (HTTP ${STATUS})"
+            exit 1
+          fi
+
       - name: Push mirror to private repo
         env:
-          GH_TOKEN: ${{ secrets.PRIVATE_REPO_TOKEN }}
+          TOKEN: ${{ secrets.PRIVATE_REPO_TOKEN }}
         run: |
-          git config --global credential.helper "!gh auth git-credential"
-          git remote add private https://github.com/187Lucka/CV-private.git
+          REMOTE_URL="https://x-access-token:${TOKEN}@github.com/187Lucka/CV-private.git"
+          git remote add private "${REMOTE_URL}"
           git push private main --force
