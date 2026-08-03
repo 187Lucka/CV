@@ -21,17 +21,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Inject personal.tex
-        run: |
-          PHONE="${{ secrets.PHONE_NUMBER }}"
-          if [ -n "${PHONE}" ]; then
-            printf '%s\\quad--\\quad ' "${PHONE}" > personal.tex
-          else
-            : > personal.tex
-          fi
-          echo "--- personal.tex ---"
-          cat personal.tex
-
       - name: Generate CV updated stamp
         run: |
           ts_compact=$(TZ=Europe/Paris date +"%Y%m%d-%H%M%S")
@@ -40,11 +29,17 @@ jobs:
 
       - name: Build LaTeX PDFs
         uses: xu-cheng/latex-action@v3
+        env:
+          PHONE_NUMBER: ${{ secrets.PHONE_NUMBER }}
         with:
           root_file: |
             lucka_valtriani_*.tex
           latexmk_use_xelatex: false
           args: -pdf -interaction=nonstopmode -halt-on-error
+          pre_compile: |
+            if [ -n "$PHONE_NUMBER" ]; then
+              sed -i "s|\\\\newcommand{\\\\myphone}{}|\\\\newcommand{\\\\myphone}{${PHONE_NUMBER}}|" lucka_valtriani_cv_other_fr.tex
+            fi
 
       - name: Build HTML PDFs with WeasyPrint
         run: |

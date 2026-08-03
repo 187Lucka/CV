@@ -11,6 +11,8 @@
 \usepackage[dvipsnames,svgnames,x11names]{xcolor}
 \usepackage{hyperref}
 \usepackage{parskip}
+\usepackage{etoolbox}
+\newcommand{\myphone}{}
 
 \definecolor{accent}{HTML}{1A1A2E}
 \definecolor{rulecol}{HTML}{1A1A2E}
@@ -44,7 +46,7 @@
   {\Large\bfseries\color{accent} Lucka Valtriani}\\[3pt]
   {\small\color{gray} Etudiant en Ingenierie Logicielle -- Dynamique, autonome \& disponible}\\[4pt]
   {\footnotesize
-    \input{personal.tex}%
+    \ifdefempty{\myphone}{}{\myphone\quad--\quad}%
     \href{mailto:lucka.valtriani@epitech.eu}{lucka.valtriani@epitech.eu}
     \quad--\quad Nice, France
     \quad--\quad \href{https://www.linkedin.com/in/lucka-valtriani-8a8551258/}{linkedin.com/in/lucka-valtriani}

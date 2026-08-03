@@ -46,6 +46,3 @@
 # OS
 .DS_Store
 Thumbs.db
-
-# Informations personnelles (ne jamais pusher)
-personal.tex
