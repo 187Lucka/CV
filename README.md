@@ -1,6 +1,6 @@
-# CV LaTeX
+# CV LaTeX & Web
 
-Ce depot contient mon CV en LaTeX, avec compilation automatique en PDF et creation de releases GitHub a chaque modification des fichiers .tex sur la branche principale.
+Ce depot contient mes CVs en LaTeX et HTML, avec compilation automatique en PDF et creation de releases GitHub a chaque modification des fichiers .tex / .html sur la branche principale.
 
 ## Pourquoi ce projet
 
@@ -12,7 +12,8 @@ Le but est de rendre mon CV fiable, tracable et facile a partager. Chaque modifi
 - CV backend : `lucka_valtriani_cv_backend_fr.tex`
 - CV long : `lucka_valtriani_cv_long_fr.tex`
 - CV generaliste : `lucka_valtriani_cv_other_fr.tex`
-- Design HTML : `lucka_valtriani_cv_design.html`
+- CV design (print) : `lucka_valtriani_cv_design.html`
+- CV web (responsive) : `lucka_valtriani_cv_web.html`
 - Workflow CI : `.github/workflows/release-cv.yml`
 - Fichier de stamp genere par la CI : `cv_updated.inc` (ne pas versionner)
 
@@ -25,6 +26,7 @@ Le but est de rendre mon CV fiable, tracable et facile a partager. Chaque modifi
 	- CV long FR : https://github.com/187Lucka/CV/releases/latest/download/lucka_valtriani_cv_long_fr.pdf
 	- CV short FR : https://github.com/187Lucka/CV/releases/latest/download/lucka_valtriani_cv_short_fr.pdf
 	- CV generaliste FR : https://github.com/187Lucka/CV/releases/latest/download/lucka_valtriani_cv_other_fr.pdf
+	- CV web : https://github.com/187Lucka/CV/releases/latest/download/lucka_valtriani_cv_web.pdf
 
 ## Prerequis locaux
 
@@ -56,9 +58,11 @@ latexmk -C
 
 ## Version HTML / PDF
 
-Le fichier HTML sert a generer un PDF visuellement identique via impression.
+### CV design (format A4, optimise impression)
 
-### Export PDF (Chrome / Edge)
+Le fichier `lucka_valtriani_cv_design.html` sert a generer un PDF visuellement identique via impression.
+
+#### Export PDF (Chrome / Edge)
 
 1. Ouvre `lucka_valtriani_cv_design.html` dans le navigateur.
 2. Ouvre l'impression.
@@ -68,6 +72,15 @@ Le fichier HTML sert a generer un PDF visuellement identique via impression.
 	- Echelle : 100%
 	- Options : activer l'arriere-plan (couleurs/graphismes)
 4. Exporte en PDF.
+
+### CV web (responsive, dark theme)
+
+Le fichier `lucka_valtriani_cv_web.html` est un CV concu pour etre consulte directement dans un navigateur.
+
+- Nav sticky, smooth scroll entre sections
+- Grille de projets, timeline d'experiences, cartes de competences
+- Responsive mobile
+- Ouvre simplement le fichier dans un navigateur — aucune manip d'impression necessaire.
 
 ## CI / Releases GitHub
 
