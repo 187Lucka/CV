@@ -1,6 +1,7 @@
 name: Release CV PDF
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
