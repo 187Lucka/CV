@@ -25,9 +25,9 @@ jobs:
         run: |
           PHONE="${{ secrets.PHONE_NUMBER }}"
           if [ -n "${PHONE}" ]; then
-            printf '\\def\\myphone{%s}\n' "${PHONE}" > personal.tex
+            printf '%s\\quad--\\quad ' "${PHONE}" > personal.tex
           else
-            printf '\\def\\myphone{}\n' > personal.tex
+            : > personal.tex
           fi
           echo "--- personal.tex ---"
           cat personal.tex
