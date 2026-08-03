@@ -1,0 +1,20 @@
+name: Mirror to Private Repo
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout full history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Push mirror to private repo
+        run: |
+          git remote add private https://x-access-token:${{ secrets.PRIVATE_REPO_TOKEN }}@github.com/187Lucka/CV-private.git
+          git push private main --force
