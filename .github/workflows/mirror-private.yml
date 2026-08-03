@@ -16,7 +16,8 @@ jobs:
 
       - name: Push mirror to private repo
         env:
-          TOKEN: ${{ secrets.PRIVATE_REPO_TOKEN }}
+          GH_TOKEN: ${{ secrets.PRIVATE_REPO_TOKEN }}
         run: |
-          git remote add private https://x-access-token:${TOKEN}@github.com/187Lucka/CV-private.git
+          git config --global credential.helper "!gh auth git-credential"
+          git remote add private https://github.com/187Lucka/CV-private.git
           git push private main --force
