@@ -10,7 +10,7 @@ with open(path, 'r', encoding='utf-8') as f:
     content = f.read()
 
 marker = r'\newcommand{\myphone}{}'
-replacement = r'\newcommand{\myphone}{' + phone + '}'
+replacement = r'\newcommand{\myphone}{' + phone + r'\quad--\quad}'
 
 if marker not in content:
     print(f"ERROR: marker '{marker}' not found in {path}")
