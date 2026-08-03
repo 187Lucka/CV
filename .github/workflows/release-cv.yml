@@ -27,11 +27,27 @@ jobs:
           ts_human=$(TZ=Europe/Paris date +"%d/%m/%Y %H:%M")
           echo "\\newcommand{\\cvupdated}{${ts_human} (heure de Paris)}" > cv_updated.inc
 
-      - name: Write phone number to workspace
+      - name: Inject phone number into CV
         run: |
-          if [ -n "$PHONE_NUMBER" ]; then
-            echo "$PHONE_NUMBER" > .phone_tmp
-          fi
+          python3 - <<'EOF'
+import os, sys
+phone = os.environ.get('PHONE_NUMBER', '').strip()
+if not phone:
+    print("No PHONE_NUMBER secret set, skipping.")
+    sys.exit(0)
+path = 'lucka_valtriani_cv_other_fr.tex'
+with open(path, 'r', encoding='utf-8') as f:
+    content = f.read()
+old = r'\newcommand{\myphone}{}'
+new = r'\newcommand{\myphone}{' + phone + '}'
+if old not in content:
+    print(f"ERROR: marker not found in {path}")
+    sys.exit(1)
+content = content.replace(old, new, 1)
+with open(path, 'w', encoding='utf-8') as f:
+    f.write(content)
+print(f"Phone injected ({len(phone)} chars).")
+EOF
         env:
           PHONE_NUMBER: ${{ secrets.PHONE_NUMBER }}
 
@@ -42,13 +58,6 @@ jobs:
             lucka_valtriani_*.tex
           latexmk_use_xelatex: false
           args: -pdf -interaction=nonstopmode -halt-on-error
-          pre_compile: |
-            if [ -f .phone_tmp ]; then
-              PHONE=$(tr -d '[:space:]' < .phone_tmp)
-              if [ -n "$PHONE" ]; then
-                sed -i "s|\\\\newcommand{\\\\myphone}{}|\\\\newcommand{\\\\myphone}{${PHONE}}|" lucka_valtriani_cv_other_fr.tex
-              fi
-            fi
 
       - name: Build HTML PDFs with WeasyPrint
         run: |
