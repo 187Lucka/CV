@@ -27,18 +27,27 @@ jobs:
           ts_human=$(TZ=Europe/Paris date +"%d/%m/%Y %H:%M")
           echo "\\newcommand{\\cvupdated}{${ts_human} (heure de Paris)}" > cv_updated.inc
 
-      - name: Build LaTeX PDFs
-        uses: xu-cheng/latex-action@v3
+      - name: Write phone number to workspace
+        run: |
+          if [ -n "$PHONE_NUMBER" ]; then
+            echo "$PHONE_NUMBER" > .phone_tmp
+          fi
         env:
           PHONE_NUMBER: ${{ secrets.PHONE_NUMBER }}
+
+      - name: Build LaTeX PDFs
+        uses: xu-cheng/latex-action@v3
         with:
           root_file: |
             lucka_valtriani_*.tex
           latexmk_use_xelatex: false
           args: -pdf -interaction=nonstopmode -halt-on-error
           pre_compile: |
-            if [ -n "$PHONE_NUMBER" ]; then
-              sed -i "s|\\\\newcommand{\\\\myphone}{}|\\\\newcommand{\\\\myphone}{${PHONE_NUMBER}}|" lucka_valtriani_cv_other_fr.tex
+            if [ -f .phone_tmp ]; then
+              PHONE=$(tr -d '[:space:]' < .phone_tmp)
+              if [ -n "$PHONE" ]; then
+                sed -i "s|\\\\newcommand{\\\\myphone}{}|\\\\newcommand{\\\\myphone}{${PHONE}}|" lucka_valtriani_cv_other_fr.tex
+              fi
             fi
 
       - name: Build HTML PDFs with WeasyPrint
