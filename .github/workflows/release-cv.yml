@@ -20,6 +20,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Inject personal.tex
+        run: |
+          if [ -n "${{ secrets.PHONE_NUMBER }}" ]; then
+            echo "${{ secrets.PHONE_NUMBER }}" > personal.tex
+          else
+            echo "" > personal.tex
+          fi
+
       - name: Generate CV updated stamp
         run: |
           ts_compact=$(TZ=Europe/Paris date +"%Y%m%d-%H%M%S")
