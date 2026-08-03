@@ -31,3 +31,16 @@ jobs:
         run: |
           git remote add private "https://x-access-token:${{ secrets.PRIVATE_REPO_TOKEN }}@github.com/187Lucka/CV-private.git"
           git push private main --force
+
+      - name: Update README links for private repo
+        env:
+          TOKEN: ${{ secrets.PRIVATE_REPO_TOKEN }}
+        run: |
+          git clone "https://x-access-token:${TOKEN}@github.com/187Lucka/CV-private.git" /tmp/cv-private
+          cd /tmp/cv-private
+          sed -i 's|github\.com/187Lucka/CV/|github.com/187Lucka/CV-private/|g' README.md
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          git diff --cached --quiet || git commit -m "chore: update README links for private repo"
+          git push
