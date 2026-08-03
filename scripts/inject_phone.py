@@ -12,6 +12,10 @@ latex_files = [
     'lucka_valtriani_cv_short_fr.tex',
     'lucka_valtriani_cv_long_fr.tex',
     'lucka_valtriani_cv_web_fr.tex',
+    'lucka_valtriani_lettre_dev_fr.tex',
+    'lucka_valtriani_lettre_backend_fr.tex',
+    'lucka_valtriani_lettre_web_fr.tex',
+    'lucka_valtriani_lettre_other_fr.tex',
 ]
 
 latex_marker = r'\newcommand{\myphone}{}'

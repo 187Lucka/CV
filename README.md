@@ -14,6 +14,10 @@ Le but est de rendre mon CV fiable, tracable et facile a partager. Chaque modifi
 - CV long : `lucka_valtriani_cv_long_fr.tex`
 - CV generaliste : `lucka_valtriani_cv_other_fr.tex`
 - CV design (HTML print) : `lucka_valtriani_cv_design.html`
+- Lettre dev generaliste : `lucka_valtriani_lettre_dev_fr.tex`
+- Lettre backend : `lucka_valtriani_lettre_backend_fr.tex`
+- Lettre web : `lucka_valtriani_lettre_web_fr.tex`
+- Lettre non-tech : `lucka_valtriani_lettre_other_fr.tex`
 - Workflow CI : `.github/workflows/release-cv.yml`
 - Fichier de stamp genere par la CI : `cv_updated.inc` (ne pas versionner)
 
@@ -27,6 +31,10 @@ Le but est de rendre mon CV fiable, tracable et facile a partager. Chaque modifi
 	- CV short FR : https://github.com/187Lucka/CV/releases/latest/download/lucka_valtriani_cv_short_fr.pdf
 	- CV generaliste FR : https://github.com/187Lucka/CV/releases/latest/download/lucka_valtriani_cv_other_fr.pdf
 	- CV web FR : https://github.com/187Lucka/CV/releases/latest/download/lucka_valtriani_cv_web_fr.pdf
+	- Lettre dev : https://github.com/187Lucka/CV/releases/latest/download/lucka_valtriani_lettre_dev_fr.pdf
+	- Lettre backend : https://github.com/187Lucka/CV/releases/latest/download/lucka_valtriani_lettre_backend_fr.pdf
+	- Lettre web : https://github.com/187Lucka/CV/releases/latest/download/lucka_valtriani_lettre_web_fr.pdf
+	- Lettre non-tech : https://github.com/187Lucka/CV/releases/latest/download/lucka_valtriani_lettre_other_fr.pdf
 
 ## Prerequis locaux
 

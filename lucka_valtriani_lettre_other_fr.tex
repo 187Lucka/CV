@@ -1,0 +1,81 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[a4paper, top=2.2cm, bottom=2.2cm, left=2.5cm, right=2.2cm]{geometry}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage[dvipsnames,svgnames,x11names]{xcolor}
+\usepackage{hyperref}
+\usepackage{parskip}
+\newcommand{\myphone}{}
+
+% --- A personnaliser pour chaque candidature ---
+\newcommand{\entreprise}{[Nom de l'entreprise]}
+\newcommand{\poste}{[Intitule du poste]}
+% -----------------------------------------------
+
+\definecolor{accent}{HTML}{1A1A2E}
+\definecolor{linkcolor}{HTML}{0F3460}
+\definecolor{gray}{HTML}{444444}
+
+\hypersetup{colorlinks=true, urlcolor=linkcolor, hidelinks}
+
+\pagestyle{empty}
+\setlength{\parskip}{0.6em}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+% ---- EN-TETE ----
+\begin{minipage}[t]{0.55\linewidth}
+  {\large\bfseries\color{accent} Lucka Valtriani}\\[2pt]
+  {\small\color{gray}
+    \myphone{}lucka.valtriani@epitech.eu\\
+    Nice, France ~|~ Permis B\\
+    \href{https://www.linkedin.com/in/lucka-valtriani-8a8551258/}{linkedin.com/in/lucka-valtriani}
+  }
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.38\linewidth}
+  \raggedleft
+  {\small\color{gray} Nice, le \today}
+\end{minipage}
+
+\vspace{0.5pt}
+{\color{accent}\rule{\linewidth}{0.6pt}}
+\vspace{14pt}
+
+% ---- DESTINATAIRE ----
+{\small\color{gray}
+  A l'attention du service recrutement\\
+  \textbf{\entreprise}
+}
+
+\vspace{14pt}
+
+% ---- OBJET ----
+\noindent\textbf{Objet :} Candidature --- \poste{} --- Temps partiel lun.--mer., disponible mi-septembre 2026
+
+\vspace{18pt}
+
+Madame, Monsieur,
+
+\vspace{4pt}
+
+Je me permets de vous adresser ma candidature pour le poste de \textbf{\poste} au sein de \textbf{\entreprise}. Etudiant en 5\textsuperscript{e} annee a Epitech Nice (niveau Master, RNCP niv.~7), je recherche un emploi a temps partiel du \textbf{lundi au mercredi} a partir de \textbf{mi-septembre 2026}, en parallelele de mes etudes. Serieux, fiable et rapide a l'apprentissage, je suis a la recherche d'un poste dans lequel je puisse m'investir concretement et durablement.
+
+Depuis 2021, je cumule des experiences en parallele de mes etudes~: technicien de surface de nuit en \textbf{EHPAD} (rigueur, ponctualite, discretion en environnement medical exigeant), fondateur d'une \textbf{activite de vente en ligne} active depuis 3 ans (relation client quotidienne, gestion des litiges, negociation fournisseurs, suivi des commandes), et coordinateur d'une equipe sur un projet communautaire de plusieurs centaines de membres. Cette diversite d'experiences m'a appris a m'adapter rapidement a tout type d'environnement, a gerer plusieurs priorites en meme temps et a maintenir un niveau de service irreprochable sur la duree. Mon \textbf{annee universitaire au Quebec} a egalement renforce mon sens de l'initiative et mon aisance en anglais professionnel.
+
+Ponctuel, engage et a l'aise aussi bien en equipe qu'en autonomie, je serais heureux de m'investir pleinement au sein de \textbf{\entreprise} les jours convenus. Je reste disponible pour un entretien a votre convenance.
+
+\vspace{18pt}
+
+Veuillez agreer, Madame, Monsieur, l'expression de mes salutations distinguees.
+
+\vspace{28pt}
+
+\noindent Lucka Valtriani
+
+\end{document}

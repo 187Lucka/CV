@@ -1,0 +1,81 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[a4paper, top=2.2cm, bottom=2.2cm, left=2.5cm, right=2.2cm]{geometry}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage[dvipsnames,svgnames,x11names]{xcolor}
+\usepackage{hyperref}
+\usepackage{parskip}
+\newcommand{\myphone}{}
+
+% --- A personnaliser pour chaque candidature ---
+\newcommand{\entreprise}{[Nom de l'entreprise]}
+\newcommand{\poste}{[Intitule du poste]}
+% -----------------------------------------------
+
+\definecolor{accent}{HTML}{1A1A2E}
+\definecolor{linkcolor}{HTML}{0F3460}
+\definecolor{gray}{HTML}{444444}
+
+\hypersetup{colorlinks=true, urlcolor=linkcolor, hidelinks}
+
+\pagestyle{empty}
+\setlength{\parskip}{0.6em}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+% ---- EN-TETE ----
+\begin{minipage}[t]{0.55\linewidth}
+  {\large\bfseries\color{accent} Lucka Valtriani}\\[2pt]
+  {\small\color{gray}
+    \myphone{}lucka.valtriani@epitech.eu\\
+    Nice, France ~|~ \href{https://valtriani.dev}{valtriani.dev}\\
+    \href{https://github.com/187lucka}{github.com/187lucka}
+  }
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.38\linewidth}
+  \raggedleft
+  {\small\color{gray} Nice, le \today}
+\end{minipage}
+
+\vspace{0.5pt}
+{\color{accent}\rule{\linewidth}{0.6pt}}
+\vspace{14pt}
+
+% ---- DESTINATAIRE ----
+{\small\color{gray}
+  A l'attention du service recrutement\\
+  \textbf{\entreprise}
+}
+
+\vspace{14pt}
+
+% ---- OBJET ----
+\noindent\textbf{Objet :} Candidature --- \poste{} --- Temps partiel lun.--mer., disponible mi-septembre 2026
+
+\vspace{18pt}
+
+Madame, Monsieur,
+
+\vspace{4pt}
+
+Je me permets de vous adresser ma candidature pour le poste de \textbf{\poste} au sein de \textbf{\entreprise}. Actuellement en 5\textsuperscript{e} annee a Epitech Nice (RNCP niv.~7, niveau Master), je suis a la recherche d'un emploi a temps partiel du \textbf{lundi au mercredi} a partir de \textbf{mi-septembre 2026}, en parallelele de ma derniere annee d'etudes. Mon cursus intensif par projets et mes experiences professionnelles en conditions reelles m'ont permis de developper une solide polyvalence technique.
+
+Depuis 2022, je cumule des experiences de developpement concrets en parallele de mes etudes~: responsable backend et DevOps pour une plateforme Web3 (\textit{CLYR}), developpeur principal d'un serveur en production atteignant \textbf{700 joueurs simultanes}, et fondateur d'une activite freelance de vente de scripts active depuis 3 ans. Ces experiences m'ont rendu operationnel sur des stacks variees (Go, Python, TypeScript, React, Docker, CI/CD, REST API) et a l'aise dans des environnements exigeant autonomie et rigueur. Mon annee universitaire 2025--2026 a l'Universite Laval (Quebec, Canada) a renforce mon niveau d'anglais professionnel et mon adaptabilite en contexte international.
+
+Motive, organise et habitue a mener plusieurs projets en parallele, je serais ravi de mettre mes competences au service de \textbf{\entreprise} et de m'investir pleinement dans votre equipe les jours convenus. Je reste disponible pour un entretien a votre convenance.
+
+\vspace{18pt}
+
+Veuillez agreer, Madame, Monsieur, l'expression de mes salutations distinguees.
+
+\vspace{28pt}
+
+\noindent Lucka Valtriani
+
+\end{document}
