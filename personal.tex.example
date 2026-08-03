@@ -1,3 +1,3 @@
 % Copie ce fichier en personal.tex et remplis ton numero.
 % personal.tex est dans .gitignore et ne sera jamais pousse sur GitHub.
-+33 6 XX XX XX XX
+\def\myphone{+33 6 XX XX XX XX}

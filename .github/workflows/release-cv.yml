@@ -23,9 +23,9 @@ jobs:
       - name: Inject personal.tex
         run: |
           if [ -n "${{ secrets.PHONE_NUMBER }}" ]; then
-            echo "${{ secrets.PHONE_NUMBER }}" > personal.tex
+            echo "\\def\\myphone{${{ secrets.PHONE_NUMBER }}}" > personal.tex
           else
-            echo "" > personal.tex
+            echo "\\def\\myphone{}" > personal.tex
           fi
 
       - name: Generate CV updated stamp
