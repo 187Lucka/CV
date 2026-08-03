@@ -11,6 +11,7 @@ Le but est de rendre mon CV fiable, tracable et facile a partager. Chaque modifi
 - CV principal : `lucka_valtriani_cv_short_fr.tex`
 - CV backend : `lucka_valtriani_cv_backend_fr.tex`
 - CV long : `lucka_valtriani_cv_long_fr.tex`
+- CV generaliste : `lucka_valtriani_cv_other_fr.tex`
 - Design HTML : `lucka_valtriani_cv_design.html`
 - Workflow CI : `.github/workflows/release-cv.yml`
 - Fichier de stamp genere par la CI : `cv_updated.inc` (ne pas versionner)
@@ -23,6 +24,7 @@ Le but est de rendre mon CV fiable, tracable et facile a partager. Chaque modifi
 	- CV backend FR : https://github.com/187Lucka/CV/releases/latest/download/lucka_valtriani_cv_backend_fr.pdf
 	- CV long FR : https://github.com/187Lucka/CV/releases/latest/download/lucka_valtriani_cv_long_fr.pdf
 	- CV short FR : https://github.com/187Lucka/CV/releases/latest/download/lucka_valtriani_cv_short_fr.pdf
+	- CV generaliste FR : https://github.com/187Lucka/CV/releases/latest/download/lucka_valtriani_cv_other_fr.pdf
 
 ## Prerequis locaux
 
