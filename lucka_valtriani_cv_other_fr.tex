@@ -10,8 +10,6 @@
 \usepackage{titlesec}
 \usepackage[dvipsnames,svgnames,x11names]{xcolor}
 \usepackage{hyperref}
-\usepackage{array}
-\usepackage{tabularx}
 \usepackage{parskip}
 
 \definecolor{accent}{HTML}{1A1A2E}
@@ -44,12 +42,13 @@
 
 \begin{center}
   {\Large\bfseries\color{accent} Lucka Valtriani}\\[3pt]
-  {\small\color{gray} Etudiant en Ingenierie Logicielle | Dynamique, autonome \& disponible}\\[4pt]
+  {\small\color{gray} Etudiant en Ingenierie Logicielle -- Dynamique, autonome \& disponible}\\[4pt]
   {\footnotesize
-    \href{mailto:lucka.valtriani@epitech.eu}{lucka.valtriani@epitech.eu}
-    ~|~ Nice, France
-    ~|~ \href{https://www.linkedin.com/in/lucka-valtriani-8a8551258/}{linkedin.com/in/lucka-valtriani}
-    ~|~ Permis B --- vehicule personnel
+    \input{personal.tex}
+    \quad--\quad \href{mailto:lucka.valtriani@epitech.eu}{lucka.valtriani@epitech.eu}
+    \quad--\quad Nice, France
+    \quad--\quad \href{https://www.linkedin.com/in/lucka-valtriani-8a8551258/}{linkedin.com/in/lucka-valtriani}
+    \quad--\quad Permis B
   }
 \end{center}
 
@@ -58,24 +57,25 @@
 \section{Profil}
 {\small Etudiant en 5\textsuperscript{e} annee d'informatique a Epitech Nice (niveau Master, RNCP niv.~7), \textbf{serieux, fiable et rapide a l'apprentissage}. Premiere experience professionnelle en 2021 (EHPAD, travail de nuit). Depuis 2022, activites en parallele des etudes : freelance, vente, gestion de projet, coordination d'equipe. A l'aise autant en relation client, en travail d'equipe qu'en autonomie complete. Ponctuel, engage, disponible des fin aout / debut septembre 2026 pour m'investir pleinement dans un poste qui a du sens.}
 
-\vspace{0pt}
+\vspace{2pt}
 
 \section{Competences}
+
 {\small
-\begin{tabularx}{\linewidth}{@{} l X @{}}
-\textbf{Relationnelles}  & Relation client, ecoute active, gestion des reclamations, fidelisation, communication claire \\
-\textbf{Organisation}    & Gestion des priorites, rigueur, polyvalence, adaptation rapide a un nouvel environnement \\
-\textbf{Commerce}        & Vente, negociation, pricing, gestion de stock, e-commerce, prospection client \\
-\textbf{Travail d'equipe}& Coordination d'equipe, planification, prise de decision sous pression, live-ops \\
-\textbf{Numeriques}      & Informatique generale, outils bureautiques (Office, Google Workspace), reseaux sociaux \\
-\textbf{Langues}         & Francais (natif), Anglais professionnel (B2+), Allemand (notions) \\
-\textbf{Divers}          & Permis B et vehicule personnel, disponible fin aout / debut septembre 2026, horaires flexibles \\
-\end{tabularx}
+\begin{itemize}
+  \item \textbf{Relationnelles :} Relation client, ecoute active, gestion des reclamations, fidelisation, communication claire
+  \item \textbf{Organisation :} Gestion des priorites, rigueur, polyvalence, adaptation rapide a un nouvel environnement
+  \item \textbf{Commerce :} Vente, negociation, pricing, gestion de stock, e-commerce, prospection client
+  \item \textbf{Travail d'equipe :} Coordination d'equipe, planification, prise de decision sous pression
+  \item \textbf{Numeriques :} Informatique generale, outils bureautiques (Office, Google Workspace), reseaux sociaux
+  \item \textbf{Langues :} Francais (natif), Anglais professionnel (B2+), Allemand (notions)
+  \item \textbf{Divers :} Permis B et vehicule personnel, disponible fin aout / debut septembre 2026, horaires flexibles
+\end{itemize}
 }
 
 \vspace{1pt}
 
-\section{Experiences}
+\section{Experiences Professionnelles}
 
 \cventry{Technicien de surface de nuit}{EHPAD Les Jardins de Sainte-Marguerite}{2021 -- 2022}{
   \begin{itemize}
@@ -86,7 +86,7 @@
   \end{itemize}
 }
 
-\cventry{Achat-revente de sneakers \& vetements}{Independant}{2022 -- aujourd'hui}{
+\cventry{Achat-revente de sneakers \& vetements}{Independant}{2022 -- 2026}{
   \begin{itemize}
     \item Sourcing et selection des produits, negociation fournisseurs, analyse des tendances du marche
     \item Gestion de stock, traitement des commandes, suivi logistique
@@ -95,12 +95,11 @@
   \end{itemize}
 }
 
-\cventry{Fondateur \& Vendeur -- Produits numeriques}{187shop (freelance)}{2022 -- aujourd'hui}{
+\cventry{Fondateur \& Vendeur -- Produits numeriques}{187shop (freelance)}{2022 -- 2026}{
   \begin{itemize}
     \item Creation et commercialisation de produits numeriques en ligne, gestion autonome de l'activite
     \item Redaction de devis, suivi de commandes, support client et fidelisation
     \item Gestion des prix, des avis clients et des litiges en toute independance
-    \item Competences directement transposables a un poste de vente, de conseil ou de support
   \end{itemize}
 }
 
@@ -108,8 +107,7 @@
   \begin{itemize}
     \item Coordination d'une equipe sur des cycles de livraison hebdomadaires
     \item Gestion des retours et reclamations d'une communaute de plusieurs centaines de membres
-    \item Prise de decision rapide en situation de crise (incidents en direct, bugs critiques)
-    \item Communication constante : annonces, explications, arbitrages -- sens du service developpe
+    \item Prise de decision rapide en situation de crise, communication claire et reguliere
   \end{itemize}
 }
 
@@ -125,7 +123,7 @@
 \section{Formation}
 
 \cventry{Expert en Ingenierie Logicielle, RNCP niv.~7 (niveau Master)}{Epitech Nice}{2022 -- 2027 (en cours)}{
-  Formation par projets en equipe, axee sur l'autonomie, la rigueur et la resolution de problemes concrets. 5\textsuperscript{e} annee en cours.
+  Formation par projets en equipe, axee sur l'autonomie, la rigueur et la resolution de problemes concrets.
 }
 
 \cventry{Annee universitaire a l'etranger}{Universite Laval, Quebec, Canada}{2025 -- 2026}{
@@ -138,28 +136,23 @@
 
 \vspace{1pt}
 
-\section{Atouts}
+\section{Points forts}
 
 {\small
-\begin{tabularx}{\linewidth}{@{} l X @{}}
-\textbf{Experience concrete}   & Premiere experience professionnelle en 2021 (travail de nuit en EHPAD), activites en continu depuis \\
-\textbf{Fiabilite prouvee}     & 4 ans de gestion simultanee etudes + activites pro, sans interruption ni abandon \\
-\textbf{Sens commercial reel}  & Achat-revente et freelance actifs depuis 2022 -- contact client quotidien, gestion de conflits inclus \\
-\textbf{Polyvalence}           & Caisse, conseil, logistique, administratif, support : je m'adapte vite et sans supervision \\
-\textbf{Tech au service de l'equipe} & A l'aise avec les outils numeriques, tableurs, gestion des stocks, plateformes de vente en ligne \\
-\textbf{Ouverture internationale} & Annee au Quebec -- anglais professionnel courant, culture du travail nord-americaine vecue \\
-\end{tabularx}
+\begin{itemize}
+  \item \textbf{Experience concrete :} Premiere experience professionnelle en 2021 (travail de nuit en EHPAD), activites en continu depuis
+  \item \textbf{Fiabilite prouvee :} 4 ans de gestion simultanee etudes et activites professionnelles, sans interruption
+  \item \textbf{Sens commercial reel :} Achat-revente et freelance actifs depuis 2022 -- contact client quotidien, gestion de conflits inclus
+  \item \textbf{Polyvalence :} Caisse, conseil, logistique, administratif, support -- adaptation rapide et sans supervision
+  \item \textbf{Maitrise des outils numeriques :} Tableurs, gestion des stocks, plateformes de vente en ligne, outils bureautiques
+  \item \textbf{Ouverture internationale :} Annee au Quebec -- anglais professionnel courant, culture du travail nord-americaine vecue
+\end{itemize}
 }
 
 \vspace{1pt}
 
 \section{Centres d'interet}
 
-{\small
-Sneakers \& streetwear (achat-revente actif, connaissance fine du marche depuis 2022)
-~|~ Gaming \& culture tech
-~|~ Entrepreneuriat et gestion de projets personnels
-~|~ Veille economique et tendances marche
-}
+{\small Sneakers et streetwear (achat-revente actif depuis 2022) -- Gaming et culture tech -- Entrepreneuriat et gestion de projets -- Veille economique et tendances marche}
 
 \end{document}
