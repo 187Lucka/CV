@@ -11,6 +11,7 @@ latex_files = [
     'lucka_valtriani_cv_backend_fr.tex',
     'lucka_valtriani_cv_short_fr.tex',
     'lucka_valtriani_cv_long_fr.tex',
+    'lucka_valtriani_cv_web_fr.tex',
 ]
 
 latex_marker = r'\newcommand{\myphone}{}'
@@ -41,20 +42,3 @@ content = content.replace(design_marker, design_replacement, 1)
 with open(design_path, 'w', encoding='utf-8') as f:
     f.write(content)
 print(f"Phone injected into {design_path}.")
-
-# cv_web.html — replace <!-- PHONE_CHIP_PLACEHOLDER --> with a contact chip link
-phone_clean = phone.replace(' ', '').replace('.', '').replace('-', '')
-phone_svg = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.62 12 19.79 19.79 0 0 1 1.54 3.24 2 2 0 0 1 3.52 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.63a16 16 0 0 0 6.29 6.29l.61-.61a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 17"/></svg>'
-web_path = 'lucka_valtriani_cv_web.html'
-web_marker = '<!-- PHONE_CHIP_PLACEHOLDER -->'
-web_replacement = f'<a href="tel:{phone_clean}" class="contact-chip">{phone_svg}{phone}</a>'
-
-with open(web_path, 'r', encoding='utf-8') as f:
-    content = f.read()
-if web_marker not in content:
-    print(f"ERROR: marker not found in {web_path}")
-    sys.exit(1)
-content = content.replace(web_marker, web_replacement, 1)
-with open(web_path, 'w', encoding='utf-8') as f:
-    f.write(content)
-print(f"Phone injected into {web_path}.")

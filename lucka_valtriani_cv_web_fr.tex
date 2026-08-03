@@ -1,0 +1,161 @@
+\documentclass[9pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[a4paper, top=0.8cm, bottom=2.1cm, left=1.1cm, right=1.1cm]{geometry}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[dvipsnames,svgnames,x11names]{xcolor}
+\usepackage{hyperref}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{parskip}
+\newcommand{\myphone}{}
+
+\definecolor{accent}{HTML}{1A1A2E}
+\definecolor{linkcolor}{HTML}{0F3460}
+\definecolor{gray}{HTML}{444444}
+\definecolor{lightgray}{HTML}{777777}
+
+\hypersetup{colorlinks=true, urlcolor=linkcolor, hidelinks}
+
+\newcommand{\sectionrule}{\vspace{-3pt}{\color{accent}\rule{\linewidth}{0.6pt}}\vspace{1pt}}
+\titleformat{\section}
+  {\normalsize\bfseries}
+  {}{0em}{\MakeUppercase}
+  [\sectionrule]
+\titlespacing{\section}{0pt}{9pt}{4pt}
+
+\pagestyle{empty}
+\setlength{\parskip}{0pt}
+
+\newcommand{\cventry}[4]{%
+  \noindent{\small\textbf{#1}}\ifx&#2&\else{\small\textit{\color{gray} --- #2}}\fi{\footnotesize\textcolor{lightgray}{\hfill#3}}\par\vspace{-2pt}%
+  \ifx&#4&\else{\footnotesize #4}\fi
+  \vspace{5pt}
+}
+
+\setlist[itemize]{noitemsep, topsep=0pt, leftmargin=1.1em, label=\textbullet}
+
+\begin{document}
+
+% ---- HEADER ----
+\begin{center}
+  {\Large\bfseries\color{accent} Lucka Valtriani}\\[3pt]
+  {\small\color{gray} Developpeur Web | React, TypeScript, Node.js, REST API, Docker | Part-time lun.--mer. -- dispo mi-sept. 2026}\\[5pt]
+  {\footnotesize
+    \myphone\href{mailto:lucka.valtriani@epitech.eu}{lucka.valtriani@epitech.eu}
+    ~|~ Nice, France
+    ~|~ \href{https://github.com/187lucka}{github.com/187lucka}
+    ~|~ \href{https://www.linkedin.com/in/lucka-valtriani-8a8551258/}{linkedin.com/in/lucka-valtriani}
+    ~|~ \href{https://valtriani.dev}{valtriani.dev}
+  }
+\end{center}
+
+\vspace{5pt}
+
+% ---- PROFIL ----
+\section{Profil}
+{\small Etudiant en 5\textsuperscript{e} annee a Epitech (RNCP niv.~7), experience en developpement web \textbf{frontend et fullstack}. Projets React/TypeScript en production, APIs REST, Docker, SEO avance. Freelance actif depuis 2022, portfolio en ligne (\href{https://valtriani.dev}{valtriani.dev}). Egalement a l'aise cote backend (Node.js, PostgreSQL, WebSocket). Annee universitaire 2025--2026 a l'Universite Laval (Quebec). Anglais professionnel.}
+
+% ---- COMPETENCES ----
+\section{Competences Techniques}
+{\small
+\noindent\textbf{Langages :} JavaScript, TypeScript, Python, Go, HTML, CSS/SCSS, Lua\\[2pt]
+\noindent\textbf{Frontend :} React, Preact, Vite, i18n maison, i18next, Leaflet, SEO (JSON-LD, Open Graph, sitemap)\\[2pt]
+\noindent\textbf{Backend / API :} Node.js, REST API, WebSocket, PostgreSQL, MySQL, JWT, OAuth\\[2pt]
+\noindent\textbf{Infra / DevOps :} Docker, Docker Compose, CI/CD, Nginx, CDN, Prometheus, Grafana\\[2pt]
+\noindent\textbf{Outils :} Git, GitHub, Claude (Anthropic), GitHub Copilot\\[2pt]
+\noindent\textbf{Langues :} Francais (natif), Anglais professionnel, Allemand (niveau scolaire)\\[2pt]
+\noindent\textbf{Soft skills :} Autonomie, relation client, gestion de projet, adaptabilite
+}
+
+% ---- EXPERIENCES ----
+\section{Experiences Professionnelles}
+
+\cventry{Lead Backend Engineer / DevOps}{CLYR (Web3)}{2025 -- aujourd'hui}{
+  \begin{itemize}
+    \item Conception et maintenance de l'\textbf{API backend} et du frontend d'une plateforme Web3 d'offres d'emploi
+    \item Infrastructure Docker, pipelines CI/CD, deploiement Dokploy, monitoring Prometheus + Grafana
+  \end{itemize}
+}
+
+\cventry{Main Dev \& Project Manager}{NoFace RP (FiveM)}{Mars -- Aout 2025}{
+  \begin{itemize}
+    \item Dev principal: UI web NUI, live-ops, deploiement continu, coordination equipe
+    \item Serveur en production a $\sim$700 joueurs simultanes
+  \end{itemize}
+}
+
+\cventry{Lead Developpeur}{Infinite Corporation (FiveM)}{Juil. 2023 -- Juil. 2025}{
+  \begin{itemize}
+    \item Interface utilisateur \textbf{React NUI} integree, architecture evenementielle, persistance SQL sur 2 ans
+  \end{itemize}
+}
+
+\cventry{Stage Developpeur}{Monaco Mediaax}{Sept. 2023}{
+  \begin{itemize}
+    \item Conception de sites web et applications, gestion des demandes clients
+  \end{itemize}
+}
+
+\cventry{Fondateur \& Developpeur}{187shop (freelance)}{2022 -- aujourd'hui}{
+  \begin{itemize}
+    \item Creation et vente de scripts Lua/JS pour communautes FiveM; support, pricing, relation commerciale
+  \end{itemize}
+}
+
+% ---- PROJETS ----
+\section{Projets Web (selection)}
+
+\cventry{Portfolio personnel}{React, Vite, Docker, Nginx, CDN}{2026}{
+  \href{https://valtriani.dev}{valtriani.dev} --- i18n maison, SEO avance (JSON-LD, Open Graph, sitemap XML), deploiement Docker + CDN
+}
+
+\cventry{uFood}{TypeScript, Preact, Vite, Leaflet, CSS}{2025}{
+  Application de decouverte de restaurants: carte interactive Leaflet, filtres avances, profils utilisateurs
+}
+
+\cventry{epiFlipBoard}{Python, TypeScript, React, SCSS}{2025}{
+  Agregateur de flux d'actualites type Flipboard --- backend Python + frontend React, 51 commits
+}
+
+\cventry{Bouktou}{React, Vite, i18next, EmailJS, Docker, CSS}{2026}{
+  Site vitrine conciergerie de luxe, trilingue \textbf{FR/EN/AR} avec support RTL complet, formulaire EmailJS
+}
+
+\cventry{Sneakers Tracker}{Python, TypeScript, React, REST API, CSS}{2025}{
+  Suivi des prix du marche sneakers en temps reel, integration APIs externes, 87 commits
+}
+
+\cventry{uTasks}{TypeScript, Node.js, React, Docker, pnpm}{2025}{
+  Application web de gestion de taches: \textbf{API REST}, frontend React, stack Docker complete
+}
+
+\cventry{Soloty}{Shopify, React, Vite, CSS}{2026}{
+  Boutique merch Shopify: catalogue, panier, timer de drop produit
+}
+
+\cventry{DigiCoach (EIP)}{Go, Flutter, PostgreSQL, \textbf{WebSocket}, Docker}{2026}{
+  Coaching sportif IA, skeleton tracking temps reel --- backend Go + frontend mobile. \textit{Jury juil.~2026}
+}
+
+% ---- FORMATION ----
+\vspace{2pt}
+
+\section{Formation}
+
+\cventry{Expert en Ingenierie Logicielle, RNCP niv.~7}{Epitech Nice}{2022 -- 2027}{
+  Pedagogie par projets, autonomie, travail en equipe. 5\textsuperscript{e} annee en cours.
+}
+
+\cventry{Certificat en Technologies de l'Information}{Universite Laval, Quebec, Canada}{2025 -- 2026}{
+  Annee a l'etranger, cours en francais. Automne~2025: GLO-3102~(A), IFT-2007~(B+), GLO-4003~(B). Hiver~2026: GLO-3112(A+), GIF-3101(B+), ENT-1000(B+), MNG-1000(B+).
+}
+
+\cventry{Baccalaureat Technologique STI2D, mention Assez Bien}{Lycee Eucalyptus, Nice}{2019 -- 2022}{}
+
+\end{document}

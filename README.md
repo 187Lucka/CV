@@ -1,4 +1,4 @@
-# CV LaTeX & Web
+# CV LaTeX
 
 Ce depot contient mes CVs en LaTeX et HTML, avec compilation automatique en PDF et creation de releases GitHub a chaque modification des fichiers .tex / .html sur la branche principale.
 
@@ -10,10 +10,10 @@ Le but est de rendre mon CV fiable, tracable et facile a partager. Chaque modifi
 
 - CV principal : `lucka_valtriani_cv_short_fr.tex`
 - CV backend : `lucka_valtriani_cv_backend_fr.tex`
+- CV web : `lucka_valtriani_cv_web_fr.tex`
 - CV long : `lucka_valtriani_cv_long_fr.tex`
 - CV generaliste : `lucka_valtriani_cv_other_fr.tex`
-- CV design (print) : `lucka_valtriani_cv_design.html`
-- CV web (responsive) : `lucka_valtriani_cv_web.html`
+- CV design (HTML print) : `lucka_valtriani_cv_design.html`
 - Workflow CI : `.github/workflows/release-cv.yml`
 - Fichier de stamp genere par la CI : `cv_updated.inc` (ne pas versionner)
 
@@ -26,7 +26,7 @@ Le but est de rendre mon CV fiable, tracable et facile a partager. Chaque modifi
 	- CV long FR : https://github.com/187Lucka/CV/releases/latest/download/lucka_valtriani_cv_long_fr.pdf
 	- CV short FR : https://github.com/187Lucka/CV/releases/latest/download/lucka_valtriani_cv_short_fr.pdf
 	- CV generaliste FR : https://github.com/187Lucka/CV/releases/latest/download/lucka_valtriani_cv_other_fr.pdf
-	- CV web : https://github.com/187Lucka/CV/releases/latest/download/lucka_valtriani_cv_web.pdf
+	- CV web FR : https://github.com/187Lucka/CV/releases/latest/download/lucka_valtriani_cv_web_fr.pdf
 
 ## Prerequis locaux
 
@@ -73,14 +73,6 @@ Le fichier `lucka_valtriani_cv_design.html` sert a generer un PDF visuellement i
 	- Options : activer l'arriere-plan (couleurs/graphismes)
 4. Exporte en PDF.
 
-### CV web (responsive, dark theme)
-
-Le fichier `lucka_valtriani_cv_web.html` est un CV concu pour etre consulte directement dans un navigateur.
-
-- Nav sticky, smooth scroll entre sections
-- Grille de projets, timeline d'experiences, cartes de competences
-- Responsive mobile
-- Ouvre simplement le fichier dans un navigateur — aucune manip d'impression necessaire.
 
 ## CI / Releases GitHub
 
